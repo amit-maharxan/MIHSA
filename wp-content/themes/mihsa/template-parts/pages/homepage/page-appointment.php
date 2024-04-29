@@ -1,7 +1,7 @@
 <section class="mainGrid">
   <div class="fullWidth banner booking">
-    <div class="fullCol relative" data-src="<?php the_field('app_image');?>">
-      <img src="<?php the_field('app_image');?>" alt="" />
+    <div class="fullCol relative" style='--bg-url:url("<?php the_field('app_image');?>")'>
+      <!-- <img src="<?php the_field('app_image');?>" alt="" /> -->
     </div>
     <div class="absoluteCenter">
       <span><?php the_field('app_title');?></span>
