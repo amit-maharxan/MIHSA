@@ -11,6 +11,8 @@
   --newsletterGrey: #acacac;
   --paginationGrey: #b6b6b6;
   --highlightGreen: #99a833;
+  --logo-col: #ab8f80;
+  --link-hover-col: var(--logo-col);
   --headerFontSize: 11px;
   --regularFontSize: 12px;
   --bannerSmFontSize: 15px;
@@ -101,11 +103,11 @@ section {
   --breakout-min-width: 0rem;
   --breakout-inner-padding: 2rem;
   --breakout-size: calc(
-    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  	(var(--breakout-max-width) - var(--content-max-width)) / 2
   );
   --content-size: min(
-    100% - var(--padding-inline) * 2,
-    var(--content-max-width)
+  	100% - var(--padding-inline) * 2,
+  	var(--content-max-width)
   );
   --fullWidth-size: minmax(var(--padding-inline), 1fr);
   display: grid;
@@ -208,12 +210,15 @@ header {
   height: auto;
 }
 
-.btn-sm {
+.btn-sm, form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding-inline: 1rem;
   width: max-content;
   padding-block: 0.75rem;
   margin-block: 1rem;
   cursor: pointer;
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
 
 .btn-md {
@@ -222,6 +227,9 @@ header {
   padding-block: 0.75rem;
   margin-block: 1rem;
   cursor: pointer;
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
 
 .btn-pill {
@@ -234,6 +242,10 @@ header {
   border: 1px solid var(--dark);
   font-family: var(--font-primary);
 }
+.btn-light:hover {
+  color: var(--light);
+  background: var(--dark);
+}
 
 .btn-dark {
   color: var(--light);
@@ -243,14 +255,22 @@ header {
   font-size: var(--testimonialFontSize);
   font-weight: 300;
 }
+.btn-dark:hover {
+  color: var(--dark);
+  background: var(--light);
+}
 
-.btn-highlight {
+.btn-highlight, form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {
   color: var(--light);
   background: var(--highlightGreen);
   font-family: var(--font-secondary);
   border: 1px solid var(--highlightGreen);
   font-size: var(--regularFontSize);
   font-weight: 300;
+}
+.btn-highlight:hover, form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit]:hover {
+  color: var(--highlightGreen);
+  background: var(--light);
 }
 
 .w700 {
@@ -375,11 +395,42 @@ footer ul li span {
 .treatmentGrid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   list-style: none;
   font-size: var(--imgOverlayFontSize);
   font-weight: 300;
   color: var(--light);
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .treatmentGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.treatmentGrid > * > .imgWrapper {
+  width: min-content;
+  height: min-content;
+  overflow: hidden;
+}
+.treatmentGrid > * > .imgWrapper img {
+  height: 100%;
+  width: auto;
+  display: block;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+  object-fit: cover;
+}
+.treatmentGrid .absoluteCenter > * {
+  transition-property: transform, color, filter;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+}
+.treatmentGrid > *:hover > .imgWrapper img {
+  transform: scale(1.1);
+}
+.treatmentGrid > *:hover .absoluteCenter > * {
+  transform: scale(1.1);
 }
 .treatmentGrid li {
   position: relative;
@@ -404,7 +455,6 @@ footer ul li span {
   opacity: 1;
   pointer-events: auto;
 }
-
 .floatRight {
   float: right;
 }
@@ -431,6 +481,13 @@ footer ul li span {
 .banner.booking .absoluteCenter {
   top: 40%;
   transform: translateX(-50%);
+}
+.banner.booking > .fullCol {
+  background-image: var(--bg-url);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 80vh;
 }
 
 section:has(.testimonialGrid) {
@@ -506,6 +563,7 @@ section:has(.testimonialGrid) {
 
 .custom-arrow {
   display: flex;
+  cursor: pointer;
 }
 .custom-arrow.custom-arrow-next img {
   transform: scale(-1);
@@ -515,6 +573,7 @@ section:has(.testimonialGrid) {
 }
 
 .newsletterGrid {
+  --link-hover-col: var(--highlightGreen);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   font-family: var(--font-secondary);
@@ -566,6 +625,69 @@ section:has(.testimonialGrid) {
 .duoColGrid li {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+div:has(.newsletterGrid) {
+  position: relative;
+}
+div:has(.newsletterGrid)::after {
+  z-index: -1;
+  content: "";
+  height: 110px;
+  width: 110px;
+  -webkit-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+  -moz-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+  box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+a:not([data-default]):not([class]):any-link,
+.menu-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a[class] {
+  text-decoration: none;
+}
+
+a:not([class*=btn]) {
+  position: relative;
+}
+a:not([class*=btn])::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: var(--link-hover-col);
+  bottom: -4px;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+a:not([class*=btn]):hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+form[data-name=Newsletter] .mc4wp-form-fields {
+  display: flex;
+  width: 90%;
+}
+form[data-name=Newsletter] .mc4wp-form-fields p {
+  display: block;
+  margin: 0;
+}
+form[data-name=Newsletter] .mc4wp-form-fields p input {
+  padding: 0.5rem;
+  margin: 0;
+}
+form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
+  padding-block: 0.4rem;
 }
 
 /*# sourceMappingURL=custom.css.map */
