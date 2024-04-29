@@ -18,9 +18,9 @@
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
       <li>
         <div class="imgWrapper">
-        <a href="">
-          <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
-          <div class="absoluteCenter">
+          <a href="">
+            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
+            <div class="absoluteCenter">
               <img src="<?php the_field('service_icon');?>" alt="" />
               <span><?php the_title();?></span>
             </div>

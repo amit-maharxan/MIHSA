@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function mihsa_scripts() {
 	wp_enqueue_style('mihsa-splide-css', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.8/dist/css/splide.min.css');
 	wp_enqueue_style('mihsa-custom-css', DK_CSS . '/custom.css');
+	wp_enqueue_style('mihsa-dev-css', DK_CSS . '/dev.css');
 
 	// Enqueue script starts
 	// Remove default jQuery.
