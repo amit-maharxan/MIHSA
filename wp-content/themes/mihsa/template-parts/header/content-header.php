@@ -1,5 +1,5 @@
 <header class="mainGrid">
-  <div class="fullWidth bg-lightGrey">
+  <div class="fullWidthOuter bg-lightGrey">
     <div class="breakout-inner">
       <div class="header-top-bar-content fullCol">
         <ul>
@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  <div class="fullWidth bg-light">
+  <div class="fullWidthOuter bg-light">
     <div class="content header-bottom-content">
       <?php
           wp_nav_menu([

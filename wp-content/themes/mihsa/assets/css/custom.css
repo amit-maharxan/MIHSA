@@ -101,7 +101,6 @@ section {
   --content-max-width: 1280px;
   --breakout-max-width: 1400px;
   --breakout-min-width: 0rem;
-  --breakout-inner-padding: 2rem;
   --breakout-size: calc(
   	(var(--breakout-max-width) - var(--content-max-width)) / 2
   );
@@ -111,7 +110,7 @@ section {
   );
   --fullWidth-size: minmax(var(--padding-inline), 1fr);
   display: grid;
-  grid-template-columns: [fullWidth-start] var(--fullWidth-size) [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end] var(--fullWidth-size) [fullWidth-end];
+  grid-template-columns: [fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] 2rem [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end] 2rem [fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
   display: grid;
 }
 
@@ -125,13 +124,18 @@ section {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: breakout;
-  padding-inline: var(--breakout-inner-padding);
 }
 
 .fullWidth {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: fullWidth;
+}
+
+.fullWidthOuter {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: fullWidthOuter;
 }
 
 .content {
@@ -158,6 +162,17 @@ header {
   font-family: var(--font-secondary);
   font-size: var(--headerFontSize);
   font-weight: var(--fontWeightRegular);
+}
+
+header {
+  top: 0;
+  position: fixed;
+  z-index: 1;
+}
+@media screen and (min-width: 769px) {
+  header {
+    width: 100vw;
+  }
 }
 
 .header-top-bar-content {
@@ -396,6 +411,7 @@ footer ul li span {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
+  width: 100%;
   list-style: none;
   font-size: var(--imgOverlayFontSize);
   font-weight: 300;
@@ -408,18 +424,21 @@ footer ul li span {
   }
 }
 .treatmentGrid > * > .imgWrapper {
-  width: min-content;
+  width: 100%;
   height: min-content;
   overflow: hidden;
 }
 .treatmentGrid > * > .imgWrapper img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   display: block;
   transition-property: transform;
   transition-timing-function: ease-in-out;
   transition-duration: 300ms;
   object-fit: cover;
+}
+.treatmentGrid .absoluteCenter img {
+  width: 4rem;
 }
 .treatmentGrid .absoluteCenter > * {
   transition-property: transform, color, filter;
@@ -490,8 +509,10 @@ footer ul li span {
   min-height: 80vh;
 }
 
-section:has(.testimonialGrid) {
-  margin-block-start: 10rem;
+@media (min-width: 768px) {
+  section:has(.testimonialGrid) {
+    margin-block-start: 10rem;
+  }
 }
 
 .testimonialGrid {
@@ -499,6 +520,7 @@ section:has(.testimonialGrid) {
   font-family: var(--font-secondary);
   font-size: var(--testimonialFontSize);
   color: var(--quoteDark);
+  row-gap: 8rem;
 }
 @media screen and (min-width: 768px) {
   .testimonialGrid {
@@ -575,10 +597,16 @@ section:has(.testimonialGrid) {
 .newsletterGrid {
   --link-hover-col: var(--highlightGreen);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  row-gap: 2rem;
+  column-gap: 1rem;
   font-family: var(--font-secondary);
   font-size: var(--regularFontSize);
   line-height: var(--newsletterLineHeight);
+}
+@media screen and (min-width: 768px) {
+  .newsletterGrid {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
 }
 .newsletterGrid .grid-item {
   display: grid;
