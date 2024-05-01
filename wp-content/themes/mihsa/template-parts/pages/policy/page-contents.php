@@ -1,7 +1,7 @@
 <section class="mainGrid">
       <div class="fullWidthOuter banner">
-            <!-- <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> -->
-            <?php $url = "http://localhost/mihsa/wp-content/uploads/2024/05/Rectangle-99.png" ?>
+            <!-- <//?php $url = "http://localhost/mihsa/wp-content/uploads/2024/05/Rectangle-99.png" ?> -->
+            <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="" class="fullCol"/>
 
             <div class="absoluteCenter color-light">
