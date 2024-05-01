@@ -1,5 +1,5 @@
 <footer class="mainGrid">
-  <div class="breakout-inner">
+  <div class="breakout">
     <div class="fullCol footerContent">
       <span>Copyright © <?php echo date('Y');?> Mihsa Aesthetics. All rights reserved.</span>
       <ul class="iconGroup">
