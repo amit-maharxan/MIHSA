@@ -1,17 +1,28 @@
+<?php do_action('mihsa_header'); ?>
+
+<section class="mainGrid">
+      <div class="halfWidthOuter inner-page-banner">
+            <img src="<?php echo DK_IMG.'/service-banner.png';?>" alt="" class="fullCol"/>
+            <h1 class="post-type-title">SERVICES</h1>
+            <div class="breadcrumb">
+                  <ul>
+                        <li><a href="<?php echo site_url();?>">Home</a></li>
+                        <li>/</li>
+                        <li>SERVICES</li>
+                  </ul>
+            </div>
+      </div>
+</section>
+
 <section class="mainGrid">
   <div class="content">
-    <h1 class="heading-title">
-      <?php the_field('story_title');?>
-    </h1>
     <ul
       id="treatmentGrid"
       class="treatmentGrid">
       <?php
-      $i = 1;
-      // Custom query to fetch WordPress posts
       $wp_query = new WP_Query(array(
           'post_type'       => 'services', // Fetch regular WordPress posts
-          'posts_per_page'  => 8, // Number of posts to display
+          'posts_per_page'  => -1, // Number of posts to display
       ));
       
       // Loop through the WordPress posts
@@ -29,10 +40,7 @@
       </li>
       <?php endwhile; wp_reset_query();?>
     </ul>
-    <a href="<?php the_field('story_button_url');?>"
-      class="btn-md btn-dark btn-pill floatRight"
-      onclick="toggleViewClicked('treatmentGrid')">
-      <?php the_field('story_button_text');?>
-    </a>
   </div>
 </section>
+
+<?php do_action('mihsa_footer'); ?>
