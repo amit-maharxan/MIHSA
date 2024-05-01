@@ -4,9 +4,10 @@
 	--light: #fff;
 	--dark: #000;
 	--footerDark: #1b1c20;
+	--quoteDark: #202023;
 	--lightGrey: #f9f9f9;
 	--darkGrey: #666666;
-	--quoteDark: #202023;
+	--contentGrey: #424242;
 	--footerIconGrey: #747474;
 	--newsletterGrey: #acacac;
 	--paginationGrey: #b6b6b6;
@@ -18,16 +19,19 @@
 	--bannerSmFontSize: 15px;
 	--imgOverlayFontSize: 16px;
 	--pRegularFontSize: 17px;
+	--lgContentFontSize: 18px;
 	--testimonialFontSize: 20px;
 	--testimonialAuthorFontSize: 22px;
 	--bannerMdFontSize: 24px;
 	--pLgFontSize: 27px;
 	--newsLeterHeading: 31px;
+	--headingSmFontSize: 48px;
 	--headingFontSize: 64px;
 	--bannerLgFontSize: 102px;
 	--monsterFontSize: 365px;
 	--fontWeightRegular: 400;
 	--newsletterLineHeight: 19px;
+	--lgContentLineHeight: 28px;
 	font-family: var(--font-primary);
 	@media (max-width: 769px) {
 		--bannerLgFontSize: 64px;
@@ -110,7 +114,7 @@ section {
 	margin-bottom: 4rem;
 }
 .mainGrid {
-	--padding-inline: 0rem;
+	--padding-inline: 2rem;
 	--content-max-width: 1280px;
 	//   --breakout-max-width: 1340px;
 	--breakout-max-width: 1400px;
@@ -126,13 +130,15 @@ section {
 	--fullWidth-size: minmax(var(--padding-inline), 1fr);
 	display: grid;
 	grid-template-columns:
-		[fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] 2rem
+		[fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] var(
+			--padding-inline
+		)
 		[breakout-start] minmax(var(--breakout-min-width), var(--breakout-size))
 		[content-start] calc(var(--content-size) / 2) [midLine] calc(
 			var(--content-size) / 2
 		)
 		[content-end] minmax(var(--breakout-min-width), var(--breakout-size))
-		[breakout-end] 2rem
+		[breakout-end] var(--padding-inline)
 		[fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
 	display: grid;
 }
@@ -201,7 +207,7 @@ nav[data-sm] {
 		position: fixed;
 		right: 0;
 		top: 0;
-		height: 100vh;
+		height: 100%;
 		transform: translateX(100%);
 		transition: transform 300ms ease-in-out;
 		.menu-drawer-content {
@@ -224,7 +230,7 @@ nav[data-sm] {
 			left: 0;
 			width: 100vw;
 			z-index: -50;
-			height: 100vh;
+			height: 100%;
 			transform: translateX(100%);
 			background: #000;
 			opacity: 0;
@@ -528,9 +534,9 @@ footer {
 		opacity: 1;
 		pointer-events: auto;
 	}
-	.tratmentTxt {
-		// font-size: --
-	}
+	// .tratmentTxt {
+	// 	// font-size: --
+	// }
 }
 .floatRight {
 	float: right;
@@ -774,4 +780,86 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 			}
 		}
 	}
+}
+.breadcrumb {
+	@include flexList();
+	text-align: center;
+	ul {
+		gap: 0.1rem;
+		justify-content: initial;
+		margin-inline: auto;
+		li:first-child {
+			margin-inline-start: auto;
+		}
+		li:last-child {
+			margin-inline-end: auto;
+		}
+	}
+}
+
+.margin-reset {
+	margin: 0;
+}
+.color-light {
+	color: var(--light);
+}
+.color-dark {
+	color: var(--dark);
+}
+.upper {
+	text-transform: uppercase;
+}
+.heading-title-sm {
+	@extend .heading-title;
+	font-size: var(--headingSmFontSize);
+}
+
+// TODO: POLKA PATTERN WITH TRANSPARENT BG
+// .squareThingy {
+// 	// background-image: linear-gradient(to bottom, transparent 50%, #28487d 50%),
+// 	// 	linear-gradient(to right, #617ca2 50%, #28487d 50%);
+// 	// background-size: 10px 10px, 10px 10px;
+// 	// width: 100%;
+// 	// height: 200px;
+// }
+
+// .polka-dot {
+//   width: 240px;
+//   height: 240px;
+//   background-color: #000;
+//   background-image: radial-gradient(#fff 10%, transparent 11%),
+//     radial-gradient(#fff 10%, transparent 11%);
+//   background-size: 60px 60px;
+//   background-position: 0 0, 30px 30px;
+//   background-repeat: repeat;
+// }
+
+//ABOUT PAGE STYLES
+.about-contents {
+	display: grid;
+	column-gap: 5rem;
+	row-gap: 2rem;
+	color: var(--contentGrey);
+	font-size: var(--lgContentFontSize);
+	line-height: var(--lgContentLineHeight);
+	@media screen and (min-width: 768px) {
+		grid-template-columns: 4fr 5fr;
+	}
+	p {
+		margin-block-end: 2rem;
+	}
+}
+.imgWrapper {
+	height: auto;
+	width: 100%;
+	img {
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+.certification-images {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
