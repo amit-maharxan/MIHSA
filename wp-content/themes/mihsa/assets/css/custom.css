@@ -10,6 +10,7 @@
   --contentGrey: #424242;
   --footerIconGrey: #747474;
   --newsletterGrey: #acacac;
+  --policyGrey: #8e8e8e;
   --paginationGrey: #b6b6b6;
   --highlightGreen: #99a833;
   --logo-col: #ab8f80;
@@ -24,7 +25,7 @@
   --testimonialAuthorFontSize: 22px;
   --bannerMdFontSize: 24px;
   --pLgFontSize: 27px;
-  --newsLeterHeading: 31px;
+  --newsLeterHeading: 32px;
   --headingSmFontSize: 48px;
   --headingFontSize: 64px;
   --bannerLgFontSize: 102px;
@@ -871,6 +872,56 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.policy-sidebar .policy-title-h2 {
+  color: var(--contentGrey);
+  font-size: var(--lgContentFontSize);
+  line-height: var(--lgContentLineHeight);
+  font-size: var(--newsLeterHeading);
+  font-weight: 600;
+}
+.policy-sidebar ul {
+  display: grid;
+  list-style: none;
+  padding-inline: 0;
+  padding-block-start: 1rem;
+  color: var(--contentGrey);
+  font-size: var(--lgContentFontSize);
+  line-height: var(--lgContentLineHeight);
+  color: var(--policyGrey);
+}
+.policy-sidebar ul li {
+  padding-block: 1rem;
+}
+.policy-sidebar ul li[class*=current] {
+  color: contentGrey;
+  font-weight: 600;
+}
+
+.policy-contents {
+  display: grid;
+  column-gap: 5rem;
+  row-gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .policy-contents {
+    grid-template-columns: 2fr 5fr;
+  }
+}
+.policy-contents .policy-title {
+  color: var(--contentGrey);
+  font-size: var(--lgContentFontSize);
+  line-height: var(--lgContentLineHeight);
+  font-size: var(--bannerMdFontSize);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.policy-contents .policy-description,
+.policy-contents .policy-description + p {
+  color: var(--contentGrey);
+  font-size: var(--lgContentFontSize);
+  line-height: var(--lgContentLineHeight);
 }
 
 /*# sourceMappingURL=custom.css.map */
