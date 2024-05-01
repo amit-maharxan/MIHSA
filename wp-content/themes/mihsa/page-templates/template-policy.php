@@ -13,6 +13,4 @@ do_action('mihsa_header'); ?>
         do_action( 'mihsa_policy_content' );
     ?>
 
-    <?php get_template_part( 'template-parts/pages/homepage/page', 'appointment' ); ?>
-
 <?php do_action('mihsa_footer'); ?>
