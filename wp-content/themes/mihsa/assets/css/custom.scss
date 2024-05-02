@@ -1,10 +1,13 @@
 :root {
 	--font-primary: Montserrat;
-	--font-secondary: Helvetica;
+	--font-primary: Montserrat;
+	// --font-secondary: Helvetica;
+	--font-secondary: var(--font-primary);
 	--light: #fff;
 	--dark: #000;
 	--footerDark: #1b1c20;
 	--quoteDark: #202023;
+	--servicesGrey: #2a2a2a;
 	--lightGrey: #f9f9f9;
 	--darkGrey: #666666;
 	--contentGrey: #424242;
@@ -14,9 +17,11 @@
 	--paginationGrey: #b6b6b6;
 	--highlightGreen: #99a833;
 	--logo-col: #ab8f80;
+	--logo-col-light: #bca59b;
 	--link-hover-col: var(--logo-col);
-	--headerFontSize: 11px;
 	--regularFontSize: 12px;
+	--headerFontSize: var(--regularFontSize);
+	// --headerFontSize: 11px;
 	--bannerSmFontSize: 15px;
 	--imgOverlayFontSize: 16px;
 	--pRegularFontSize: 17px;
@@ -465,6 +470,12 @@ footer {
 		height: auto;
 		max-height: 84vh;
 		object-fit: cover;
+	}
+}
+.banner-sm {
+	@extend .banner;
+	img {
+		max-height: 55vh;
 	}
 }
 .welcomeGrid {
@@ -963,5 +974,50 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 	.policy-description,
 	.policy-description + p {
 		@include contentNew();
+	}
+}
+
+//SINGLE SERVICE SECTION
+.service_contents {
+	display: grid;
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	gap: 8rem;
+	.image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.heading-section {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		.left-details,
+		right-btn {
+			flex-grow: 1;
+		}
+		.time {
+			display: flex;
+			color: var(--dark);
+			align-items: center;
+			gap: 1rem;
+		}
+	}
+}
+.titleFancy {
+	font-size: var(--headingSmFontSize);
+	font-weight: 700;
+	position: relative;
+	color: var(--servicesGrey);
+	margin-block-end: 1rem;
+	&::before {
+		content: '';
+		position: absolute;
+		width: 6rem;
+		height: 1px;
+		bottom: 0;
+		left: 0%;
+		border-bottom: 2px solid var(--logo-col-light);
 	}
 }

@@ -1,16 +1,19 @@
 <?php do_action('mihsa_header'); ?>
 
 <section class="mainGrid">
-      <div class="halfWidthOuter inner-page-banner">
-            <?php $url = wp_get_attachment_url( get_post_thumbnail_id(144), 'thumbnail' ); ?>
+      <div class="fullWidthOuter banner">
+            <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="" class="fullCol"/>
-            <h1 class="post-type-title">SERVICES</h1>
-            <div class="breadcrumb">
-                  <ul>
-                        <li><a href="<?php echo site_url();?>">Home</a></li>
-                        <li>/</li>
-                        <li>Services</li>
-                  </ul>
+            <div class="absoluteCenter color-light">
+                  <h1 class="heading-title-sm margin-reset upper"><?php the_title();?></h1>
+                  <div class="breadcrumb">
+                        <ul class="flexList">
+                              <li><a href="<?php echo site_url();?>">Home</a></li>
+                              <li>/</li>
+                              <li><?php the_title();?></li>
+                        </ul>
+                  </div>
+                  <!-- <div class="squareThingy"></div> -->
             </div>
       </div>
 </section>

@@ -1,10 +1,12 @@
 :root {
   --font-primary: Montserrat;
-  --font-secondary: Helvetica;
+  --font-primary: Montserrat;
+  --font-secondary: var(--font-primary);
   --light: #fff;
   --dark: #000;
   --footerDark: #1b1c20;
   --quoteDark: #202023;
+  --servicesGrey: #2a2a2a;
   --lightGrey: #f9f9f9;
   --darkGrey: #666666;
   --contentGrey: #424242;
@@ -14,9 +16,10 @@
   --paginationGrey: #b6b6b6;
   --highlightGreen: #99a833;
   --logo-col: #ab8f80;
+  --logo-col-light: #bca59b;
   --link-hover-col: var(--logo-col);
-  --headerFontSize: 11px;
   --regularFontSize: 12px;
+  --headerFontSize: var(--regularFontSize);
   --bannerSmFontSize: 15px;
   --imgOverlayFontSize: 16px;
   --pRegularFontSize: 17px;
@@ -461,19 +464,23 @@ footer ul li span {
   width: max-content;
 }
 
-.banner {
+.banner, .banner-sm {
   position: relative;
 }
-.banner.landing button {
+.banner.landing button, .landing.banner-sm button {
   position: absolute;
   left: 10%;
   bottom: 20%;
 }
-.banner img {
+.banner img, .banner-sm img {
   width: 100%;
   height: auto;
   max-height: 84vh;
   object-fit: cover;
+}
+
+.banner-sm img {
+  max-height: 55vh;
 }
 
 .welcomeGrid {
@@ -609,21 +616,21 @@ footer ul li span {
   position: relative;
 }
 
-.banner.booking {
+.banner.booking, .booking.banner-sm {
   color: var(--light);
 }
-.banner.booking span:first-child {
+.banner.booking span:first-child, .booking.banner-sm span:first-child {
   font-size: var(--bannerMdFontSize);
 }
-.banner.booking span:nth-child(2) {
+.banner.booking span:nth-child(2), .booking.banner-sm span:nth-child(2) {
   font-size: var(--bannerLgFontSize);
 }
-.banner.booking span:nth-child(3) {
+.banner.booking span:nth-child(3), .booking.banner-sm span:nth-child(3) {
   font-size: var(--bannerSmFontSize);
   float: right;
   text-align: end;
 }
-.banner.booking > .fullCol {
+.banner.booking > .fullCol, .booking.banner-sm > .fullCol {
   background-image: var(--bg-url);
   background-attachment: fixed;
   background-position: center;
@@ -968,6 +975,53 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
   color: var(--contentGrey);
   font-size: var(--lgContentFontSize);
   line-height: var(--lgContentLineHeight);
+}
+
+.service_contents {
+  display: grid;
+  gap: 8rem;
+}
+@media (min-width: 768px) {
+  .service_contents {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.service_contents .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service_contents .heading-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.service_contents .heading-section .left-details,
+.service_contents .heading-section right-btn {
+  flex-grow: 1;
+}
+.service_contents .heading-section .time {
+  display: flex;
+  color: var(--dark);
+  align-items: center;
+  gap: 1rem;
+}
+
+.titleFancy {
+  font-size: var(--headingSmFontSize);
+  font-weight: 700;
+  position: relative;
+  color: var(--servicesGrey);
+  margin-block-end: 1rem;
+}
+.titleFancy::before {
+  content: "";
+  position: absolute;
+  width: 6rem;
+  height: 1px;
+  bottom: 0;
+  left: 0%;
+  border-bottom: 2px solid var(--logo-col-light);
 }
 
 /*# sourceMappingURL=custom.css.map */
