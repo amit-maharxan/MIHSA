@@ -126,8 +126,7 @@ section {
 }
 
 .breakout {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   grid-column: breakout;
 }
 @supports (grid-template-columns: subgrid) {
@@ -136,11 +135,14 @@ section {
     grid-template-columns: subgrid;
   }
 }
+@supports not (grid-template-columns: subgrid) {
+  .breakout {
+    grid-template-columns: [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end];
+  }
+}
 
 .breakout-inner {
   display: grid;
-  display: flex;
-  flex-wrap: wrap;
   grid-column: breakout;
 }
 @supports (grid-template-columns: subgrid) {
@@ -149,10 +151,14 @@ section {
     grid-template-columns: subgrid;
   }
 }
+@supports not (grid-template-columns: subgrid) {
+  .breakout-inner {
+    grid-template-columns: [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end];
+  }
+}
 
 .fullWidth {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   grid-column: fullWidth;
 }
 @supports (grid-template-columns: subgrid) {
@@ -161,16 +167,25 @@ section {
     grid-template-columns: subgrid;
   }
 }
+@supports not (grid-template-columns: subgrid) {
+  .fullWidth {
+    grid-template-columns: [fullWidth-start] var(--padding-inline) [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end] var(--padding-inline) [fullWidth-end];
+  }
+}
 
 .fullWidthOuter {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   grid-column: fullWidthOuter;
 }
 @supports (grid-template-columns: subgrid) {
   .fullWidthOuter {
     display: grid;
     grid-template-columns: subgrid;
+  }
+}
+@supports not (grid-template-columns: subgrid) {
+  .fullWidthOuter {
+    grid-template-columns: [fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] var(--padding-inline) [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end] var(--padding-inline) [fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
   }
 }
 
@@ -428,6 +443,9 @@ footer .footerContent {
 }
 footer .iconGroup {
   color: var(--footerIconGrey);
+}
+footer .iconGroup img {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(0%) saturate(167%) hue-rotate(188deg) brightness(94%) contrast(92%);
 }
 footer ul {
   display: flex;
