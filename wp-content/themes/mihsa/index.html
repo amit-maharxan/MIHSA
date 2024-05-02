@@ -5,14 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mihsa</title>
 		<link href="./custom.css" rel="stylesheet" />
-		<!-- <link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.8/dist/css/splide.min.css"
-		/> -->
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/splidejs/3.6.12/css/splide.min.css"
+			href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.8/dist/css/splide.min.css"
 		/>
+		<!-- <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/splidejs/3.6.12/css/splide.min.css"
+		/> -->
 	</head>
 	<body>
 		<header class="mainGrid">
@@ -399,9 +399,13 @@
     src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.8/dist/js/splide.min.js"
     defer></script> -->
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/splidejs/3.6.12/js/splide.min.js"
+		src="https://www.unpkg.com/@splidejs/splide@3.0.8/dist/js/splide.cjs.js"
 		defer
 	></script>
+	<!-- <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/splidejs/3.6.12/js/splide.min.js"
+		defer
+	></script> -->
 	<script defer>
 		document.addEventListener('DOMContentLoaded', function () {
 			const splide = new Splide('#splide', {
