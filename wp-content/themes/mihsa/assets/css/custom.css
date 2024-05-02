@@ -528,12 +528,13 @@ footer ul li span {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.treatmentGrid > * > .imgWrapper {
+.treatmentGrid .imgWrapper {
   width: 100%;
   height: min-content;
   overflow: hidden;
+  position: relative;
 }
-.treatmentGrid > * > .imgWrapper img {
+.treatmentGrid .imgWrapper img {
   height: auto;
   width: 100%;
   display: block;
@@ -550,7 +551,7 @@ footer ul li span {
   transition-timing-function: ease-in-out;
   transition-duration: 300ms;
 }
-.treatmentGrid > *:hover > .imgWrapper img {
+.treatmentGrid > *:hover .imgWrapper img {
   transform: scale(1.1);
 }
 .treatmentGrid > *:hover .absoluteCenter > * {
