@@ -37,6 +37,7 @@
 	@media (max-width: 769px) {
 		--bannerLgFontSize: 64px;
 	}
+	-webkit-font-smoothing: antialiased;
 }
 $font-url: './assets/fonts';
 @font-face {

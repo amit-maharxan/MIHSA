@@ -34,6 +34,7 @@
   --newsletterLineHeight: 19px;
   --lgContentLineHeight: 28px;
   font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
 }
 @media (max-width: 769px) {
   :root {
