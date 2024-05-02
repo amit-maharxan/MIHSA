@@ -125,31 +125,57 @@ section {
 }
 
 .breakout {
-  display: grid;
-  grid-template-columns: subgrid;
+  display: flex;
+  flex-wrap: wrap;
   grid-column: breakout;
+}
+@supports (grid-template-columns: subgrid) {
+  .breakout {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
 }
 
 .breakout-inner {
   display: grid;
-  grid-template-columns: subgrid;
+  display: flex;
+  flex-wrap: wrap;
   grid-column: breakout;
+}
+@supports (grid-template-columns: subgrid) {
+  .breakout-inner {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
 }
 
 .fullWidth {
-  display: grid;
-  grid-template-columns: subgrid;
+  display: flex;
+  flex-wrap: wrap;
   grid-column: fullWidth;
+}
+@supports (grid-template-columns: subgrid) {
+  .fullWidth {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
 }
 
 .fullWidthOuter {
-  display: grid;
-  grid-template-columns: subgrid;
+  display: flex;
+  flex-wrap: wrap;
   grid-column: fullWidthOuter;
+}
+@supports (grid-template-columns: subgrid) {
+  .fullWidthOuter {
+    display: grid;
+    grid-template-columns: subgrid;
+  }
 }
 
 .content {
   grid-column: content;
+  width: 100%;
 }
 
 .fullCol {

@@ -144,30 +144,38 @@ section {
 	display: grid;
 }
 
+@mixin layoutClass() {
+	display: flex;
+	flex-wrap: wrap;
+	@supports (grid-template-columns: subgrid) {
+		display: grid;
+		grid-template-columns: subgrid;
+	}
+}
+
 .breakout {
-	display: grid;
-	grid-template-columns: subgrid;
+	@include layoutClass();
 	grid-column: breakout;
 }
 .breakout-inner {
 	display: grid;
-	grid-template-columns: subgrid;
+
+	@include layoutClass();
 	grid-column: breakout;
 	// padding-inline: var(--breakout-inner-padding);
 }
 .fullWidth {
-	display: grid;
-	grid-template-columns: subgrid;
+	@include layoutClass();
 	grid-column: fullWidth;
 }
 .fullWidthOuter {
-	display: grid;
-	grid-template-columns: subgrid;
+	@include layoutClass();
 	grid-column: fullWidthOuter;
 }
 
 .content {
 	grid-column: content;
+	width: 100%;
 }
 
 .fullCol {
