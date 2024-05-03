@@ -348,7 +348,7 @@ nav[data-sm] {
   height: auto;
 }
 
-.btn-sm, form[data-name=Newsletter] .mc4wp-form-fields p input {
+.btn-sm, section.contact form .btn, form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding-inline: 1rem;
   width: max-content;
   padding-block: 0.75rem;
@@ -370,7 +370,7 @@ nav[data-sm] {
   transition-timing-function: ease-in-out;
 }
 
-.btn-pill {
+.btn-pill, section.contact form .btn {
   border-radius: 100vh;
 }
 
@@ -385,7 +385,7 @@ nav[data-sm] {
   background: var(--dark);
 }
 
-.btn-dark {
+.btn-dark, section.contact form .btn {
   color: var(--light);
   background: var(--dark);
   font-family: var(--font-secondary);
@@ -393,7 +393,7 @@ nav[data-sm] {
   font-size: var(--testimonialFontSize);
   font-weight: 300;
 }
-.btn-dark:hover {
+.btn-dark:hover, section.contact form .btn:hover {
   color: var(--dark);
   background: var(--light);
 }
@@ -1007,7 +1007,7 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
 .service_contents .heading-section .right-btn {
   flex-grow: 1;
 }
-.service_contents .heading-section .btn-dark {
+.service_contents .heading-section .btn-dark, .service_contents .heading-section section.contact form .btn, section.contact form .service_contents .heading-section .btn {
   font-size: var(--imgOverlayFontSize);
 }
 .service_contents .heading-section .time {
@@ -1116,6 +1116,84 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
 }
 .service-details-faq-contents .accordionContent > div {
   overflow: hidden;
+}
+
+section.contact > div {
+  display: grid;
+}
+@media (min-width: 768px) {
+  section.contact > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+section.contact .contact-details {
+  list-style: none;
+}
+section.contact .contact-details li {
+  display: flex;
+  gap: 0.75rem;
+  margin-block-end: 0.75rem;
+}
+section.contact .contact-details li :nth-child(2) {
+  flex-grow: 1;
+}
+section.contact .social_icons {
+  padding-block: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+section.contact .opening_hours {
+  margin-block: 1rem;
+  font-size: var(--imgOverlayFontSize);
+}
+section.contact .opening_hours h2 {
+  font-size: var(--imgOverlayFontSize);
+}
+section.contact .opening_hours tr {
+  display: flex;
+  justify-content: space-between;
+  gap: 6.875rem;
+  margin-block: 1rem;
+}
+section.contact form {
+  display: grid;
+  gap: 1.5rem;
+}
+section.contact form .form_title {
+  font-size: var(--newsLeterHeading);
+  color: var(--servicesGrey);
+  font-weight: 600;
+}
+section.contact form input:is([type=text], [type=email]),
+section.contact form textarea {
+  --padding-inline: 1rem;
+  padding-inline: var(--padding-inline);
+  padding-block: 0.75rem;
+  width: calc(100% - var(--padding-inline) * 2);
+}
+section.contact form .wpcf7-form-control.wpcf7-checkbox {
+  display: grid;
+  padding-inline: 0;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+section.contact form .wpcf7-list-item {
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+section.contact form label {
+  font-weight: 600;
+}
+section.contact form .btn {
+  font-size: var(--imgOverlayFontSize);
+  font-weight: 600;
+  float: right;
+}
+section.contact form input,
+section.contact form textarea {
+  border-radius: 0;
+  border: 1px solid var(--dark);
 }
 
 /*# sourceMappingURL=custom.css.map */
