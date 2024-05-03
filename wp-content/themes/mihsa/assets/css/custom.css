@@ -22,6 +22,7 @@
   --link-hover-col: var(--logo-col);
   --regularFontSize: 12px;
   --headerFontSize: var(--regularFontSize);
+  --blogDateFontSize: 14px;
   --bannerSmFontSize: 15px;
   --imgOverlayFontSize: 16px;
   --pRegularFontSize: 17px;
@@ -1258,6 +1259,50 @@ section.contact form textarea {
 }
 .serviceGrid :hover .imgWrapper a > .absoluteCenter {
   transform: translate(-50%, -500%);
+}
+
+.blogGrid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .blogGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.blogGrid .testimonialWrapper {
+  position: relative;
+  overflow: hidden;
+}
+.blogGrid .testimonialWrapper .blog-details {
+  color: var(--light);
+  font-weight: 600;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: grid;
+  gap: 1.25rem;
+}
+.blogGrid .testimonialWrapper .blog-details .added-on {
+  font-size: var(--blogDateFontSize);
+}
+.blogGrid .testimonialWrapper .blog-details .title {
+  font-size: var(--bannerMdFontSize);
+}
+.blogGrid .testimonialWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease-in-out;
+}
+.blogGrid .testimonialWrapper:hover img {
+  transform: scale(1.1);
+}
+.blogGrid .testimonialWrapper:nth-child(2) {
+  grid-row: span 2;
+}
+.blogGrid .testimonialWrapper:nth-child(6) {
+  grid-column: span 2;
 }
 
 /*# sourceMappingURL=custom.css.map */
