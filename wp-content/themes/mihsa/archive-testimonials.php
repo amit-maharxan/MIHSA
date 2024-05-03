@@ -31,8 +31,8 @@
       // Loop through the WordPress posts
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
         <div class="testimonialWrapper">
-            <!-- <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" /> -->
-            <img src="http://localhost/mihsa/wp-content/uploads/2024/04/FacialFillersImg.png" alt="" />
+            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
+            <!-- <img src="http://localhost/mihsa/wp-content/uploads/2024/04/FacialFillersImg.png" alt="" /> -->
             <div class="right-testimonial-contents">
               <p><?php the_content();?></p>
               <span class="bold"><?php the_title();?></span>
