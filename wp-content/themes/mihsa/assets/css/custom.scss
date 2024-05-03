@@ -25,9 +25,11 @@
 	--headerFontSize: var(--regularFontSize);
 	--blogDateFontSize: 14px;
 	// --headerFontSize: 11px;
-	--bannerSmFontSize: 15px;
 	--imgOverlayFontSize: 16px;
-	--pRegularFontSize: 17px;
+	// --bannerSmFontSize: 15px;
+	--bannerSmFontSize: var(--imgOverlayFontSize);
+	// --pRegularFontSize: 17px;
+	--pRegularFontSize: var(--imgOverlayFontSize);
 	--lgContentFontSize: 18px;
 	--testimonialFontSize: 20px;
 	--testimonialAuthorFontSize: 22px;
@@ -680,6 +682,7 @@ section:has(.testimonialGrid) {
 		position: absolute;
 		top: -10rem;
 		color: var(--quoteDark);
+		font-family: Helvetica;
 	}
 	cite {
 		p {
@@ -1315,6 +1318,25 @@ section.contact {
 		}
 		&:nth-child(6) {
 			grid-column: span 2;
+		}
+	}
+}
+//TESTIMONIALS
+
+.testimonialSectionGrid {
+	display: grid;
+	gap: 2rem;
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.testimonialWrapper {
+		display: flex;
+		gap: 1rem;
+		img {
+			width: 250px;
+			height: auto;
+			object-fit: contain;
 		}
 	}
 }
