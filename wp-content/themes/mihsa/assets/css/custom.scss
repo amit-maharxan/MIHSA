@@ -14,10 +14,12 @@
 	--footerIconGrey: #747474;
 	--newsletterGrey: #acacac;
 	--policyGrey: #8e8e8e;
+	--accordionBorderGrey: #dbdbdb;
 	--paginationGrey: #b6b6b6;
 	--highlightGreen: #99a833;
 	--logo-col: #ab8f80;
 	--logo-col-light: #bca59b;
+	--service-bg-color: #fff5f1;
 	--link-hover-col: var(--logo-col);
 	--regularFontSize: 12px;
 	--headerFontSize: var(--regularFontSize);
@@ -38,7 +40,9 @@
 	--fontWeightRegular: 400;
 	--newsletterLineHeight: 19px;
 	--lgContentLineHeight: 28px;
+	--regularContentLineHeight: 24px;
 	font-family: var(--font-primary);
+	// line-height: var(--regularContentLineHeight);
 	@media (max-width: 769px) {
 		--bannerLgFontSize: 64px;
 	}
@@ -430,6 +434,9 @@ nav[data-sm] {
 }
 .w400 {
 	font-weight: 400;
+}
+.w500 {
+	font-weight: 500;
 }
 .heading-title {
 	font-size: var(--headingFontSize);
@@ -983,10 +990,11 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 	@media (min-width: 768px) {
 		grid-template-columns: repeat(2, 1fr);
 	}
-	gap: 8rem;
+	gap: 4rem;
 	.image img {
 		width: 100%;
-		height: 100%;
+		// height: 100%;
+		height: auto;
 		object-fit: cover;
 	}
 	.heading-section {
@@ -994,8 +1002,11 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 		gap: 1rem;
 		align-items: center;
 		.left-details,
-		right-btn {
+		.right-btn {
 			flex-grow: 1;
+		}
+		.btn-dark {
+			font-size: var(--imgOverlayFontSize);
 		}
 		.time {
 			display: flex;
@@ -1003,6 +1014,19 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 			align-items: center;
 			gap: 1rem;
 		}
+	}
+	.price_per_session {
+		padding: 1rem;
+		display: grid;
+		gap: 1rem;
+		border: 1px solid var(--logo-col);
+		margin-block: 1rem;
+		color: var(--contentGrey);
+		line-height: var(--lgContentLineHeight);
+	}
+	.description {
+		line-height: var(--regularContentLineHeight);
+		color: var(--contentGrey);
 	}
 }
 .titleFancy {
@@ -1019,5 +1043,80 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 		bottom: 0;
 		left: 0%;
 		border-bottom: 2px solid var(--logo-col-light);
+	}
+}
+.service-details-perks-contents {
+	.content {
+		background-color: var(--service-bg-color);
+		padding: 2rem;
+		color: var(--contentGrey);
+		ul {
+			--gap: calc(24rem / 16);
+			list-style-position: inside;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			list-style: none;
+			padding-left: 0;
+			padding-block-start: var(--gap);
+			li {
+				position: relative;
+				padding-left: 1.5em;
+				margin-block-end: var(--gap);
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 3px;
+					width: 1em;
+					height: 1em;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 6L9 17L4 12' stroke='%2363574B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+				}
+			}
+		}
+	}
+}
+.service-details-faq-contents {
+	.faq_title {
+		font-size: var(--newsLeterHeading);
+	}
+	.faq {
+		padding-block: 1rem;
+		margin-block: 1rem;
+		border-bottom: 1px solid var(--accordionBorderGrey);
+		svg {
+			transition: transform 300ms ease-in-out;
+		}
+		&:has([data-open]) {
+			.accordionContent {
+				grid-template-rows: 1fr;
+			}
+			svg {
+				transform: rotate(0.125turn);
+			}
+		}
+	}
+	.question {
+		font-size: var(--bannerMdFontSize);
+		color: var(--dark);
+		padding-block-end: 1rem;
+		display: flex;
+		:first-child {
+			flex-grow: 1;
+		}
+	}
+	.answer {
+		font-size: var(--imgOverlayFontSize);
+		color: var(--contentGrey);
+		line-height: var(--regularContentLineHeight);
+	}
+	.accordionContent {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 300ms ease-in-out;
+		> div {
+			overflow: hidden;
+		}
 	}
 }
