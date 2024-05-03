@@ -385,6 +385,16 @@ nav[data-sm] {
   background: var(--dark);
 }
 
+.btn-glass {
+  background: transparent;
+  border: 1px solid var(--light);
+  color: var(--light);
+}
+.btn-glass:hover {
+  color: var(--dark);
+  background: var(--light);
+}
+
 .btn-dark, section.contact form .btn {
   color: var(--light);
   background: var(--dark);
@@ -545,7 +555,7 @@ footer ul li span {
   place-self: center;
 }
 
-.treatmentGrid {
+.treatmentGrid, .serviceGrid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
@@ -557,17 +567,17 @@ footer ul li span {
   cursor: pointer;
 }
 @media (min-width: 768px) {
-  .treatmentGrid {
+  .treatmentGrid, .serviceGrid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.treatmentGrid .imgWrapper {
+.treatmentGrid .imgWrapper, .serviceGrid .imgWrapper {
   width: 100%;
   height: min-content;
   overflow: hidden;
   position: relative;
 }
-.treatmentGrid .imgWrapper img {
+.treatmentGrid .imgWrapper img, .serviceGrid .imgWrapper img {
   height: auto;
   width: 100%;
   display: block;
@@ -576,40 +586,40 @@ footer ul li span {
   transition-duration: 300ms;
   object-fit: cover;
 }
-.treatmentGrid .absoluteCenter img {
+.treatmentGrid .absoluteCenter img, .serviceGrid .absoluteCenter img {
   width: 4rem;
 }
-.treatmentGrid .absoluteCenter > * {
+.treatmentGrid .absoluteCenter > *, .serviceGrid .absoluteCenter > * {
   transition-property: transform, color, filter;
   transition-timing-function: ease-in-out;
   transition-duration: 300ms;
 }
-.treatmentGrid > *:hover .imgWrapper img {
+.treatmentGrid > *:hover .imgWrapper img, .serviceGrid > *:hover .imgWrapper img {
   transform: scale(1.1);
 }
-.treatmentGrid > *:hover .absoluteCenter > * {
+.treatmentGrid > *:hover .absoluteCenter > *, .serviceGrid > *:hover .absoluteCenter > * {
   transform: scale(1.1);
 }
-.treatmentGrid li {
+.treatmentGrid li, .serviceGrid li {
   position: relative;
   transition-property: height, opacity;
   transition-duration: 300ms;
   transition-timing-function: ease;
 }
-.treatmentGrid li:nth-child(2) {
+.treatmentGrid li:nth-child(2), .serviceGrid li:nth-child(2) {
   grid-row: span 2;
 }
-.treatmentGrid li > img {
+.treatmentGrid li > img, .serviceGrid li > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.treatmentGrid li:nth-child(n+6) {
+.treatmentGrid li:nth-child(n+6), .serviceGrid li:nth-child(n+6) {
   height: 0px;
   opacity: 0;
   pointer-events: none;
 }
-.treatmentGrid[data-moreClicked] li:nth-child(n+6) {
+.treatmentGrid[data-moreClicked] li:nth-child(n+6), [data-moreClicked].serviceGrid li:nth-child(n+6) {
   height: auto;
   opacity: 1;
   pointer-events: auto;
@@ -1194,6 +1204,60 @@ section.contact form input,
 section.contact form textarea {
   border-radius: 0;
   border: 1px solid var(--dark);
+}
+
+.serviceGrid li {
+  position: relative;
+  transition-property: height, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  overflow: hidden;
+}
+.serviceGrid li:nth-child(2) {
+  grid-row: span 2;
+}
+.serviceGrid li:nth-child(6) {
+  grid-column: span 2;
+}
+.serviceGrid li > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.serviceGrid li:nth-child(n+6) {
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+.serviceGrid .hoverContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: 300ms ease-in-out;
+}
+.serviceGrid .hoverContent .title {
+  font-size: var(--bannerMdFontSize);
+}
+.serviceGrid .imgWrapper a > .absoluteCenter {
+  transition: transform 300ms ease-in-out;
+}
+.serviceGrid .absoluteCenter {
+  place-items: center;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+.serviceGrid :hover .hoverContent {
+  height: 100%;
+}
+.serviceGrid :hover .imgWrapper a > .absoluteCenter {
+  transform: translate(-50%, -500%);
 }
 
 /*# sourceMappingURL=custom.css.map */

@@ -1,7 +1,7 @@
 <?php do_action('mihsa_header'); ?>
 
 <section class="mainGrid">
-      <div class="fullWidthOuter banner">
+      <div class="fullWidthOuter banner-sm">
             <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="" class="fullCol"/>
             <div class="absoluteCenter color-light">
@@ -22,7 +22,7 @@
   <div class="content">
     <ul
       id="treatmentGrid"
-      class="treatmentGrid">
+      class="serviceGrid">
       <?php
       $wp_query = new WP_Query(array(
           'post_type'       => 'services', // Fetch regular WordPress posts
@@ -38,6 +38,17 @@
             <div class="absoluteCenter">
               <img src="<?php the_field('service_icon');?>" alt="" />
               <span><?php the_title();?></span>
+            </div>
+            <div class="hoverContent">
+              <div class="contentWrapper" >
+                <div class="absoluteCenter">
+
+                  <h3 class="title w600">Dermal fillers</h3>
+                  <p class="desc">Dermal fillers provide a safe and effective method to enhance facial contours and address volume loss due to aging. As we age, our facial volume and structure diminish.</p>
+                  <span class="w600">Starting at $750</span>
+                  <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
+                </div>
+              </div>
             </div>
           </a>
         </div>
