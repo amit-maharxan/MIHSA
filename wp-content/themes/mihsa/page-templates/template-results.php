@@ -1,11 +1,17 @@
-<?php do_action('mihsa_header'); ?>
+<?php do_action('mihsa_header');
+
+/**
+ * Template Name: Results Layout
+ */
+
+?>
 
 <section class="mainGrid">
       <div class="fullWidthOuter banner-sm">
-            <?php $url = wp_get_attachment_url( get_post_thumbnail_id(156), 'thumbnail' ); ?>
+            <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="" class="fullCol"/>
             <div class="absoluteCenter color-light">
-                  <h1 class="heading-title-sm margin-reset upper">BLOG</h1>
+                  <h1 class="heading-title-sm margin-reset upper"><?php the_title();?></h1>
                   <div class="breadcrumb">
                         <ul class="flexList">
                               <li><a href="<?php echo site_url();?>">Home</a></li>
@@ -18,29 +24,32 @@
       </div>
 </section>
 
-<section class="mainGrid">
-  <div class="content">
-    <div class="testimonials-lists blogGrid">
+<section class="mainGrids">
+  <div class="contents">
+    <ul
+      id="resultsGrid"
+      class="resultGrid">
       <?php
       $wp_query = new WP_Query(array(
-          'post_type'       => 'post', // Fetch regular WordPress posts
-          'posts_per_page'  => 12, // Number of posts to display
+          'post_type'       => 'results', // Fetch regular WordPress posts
+          'posts_per_page'  => -1, // Number of posts to display
       ));
-    
+      
       // Loop through the WordPress posts
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-        <div class="testimonialWrapper">
+      <li>
+        <div class="imgWrappers">
           <a href="<?php the_permalink();?>">
-            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
-            <!-- <img src="http://localhost/mihsa/wp-content/uploads/2024/04/FacialFillersImg.png" alt="" /> -->
-            <div class="blog-details">
-              <p class="added-on"><?php echo get_the_date();?></p>
-            <h2 class="title"><?php the_title();?></h2>
-          </div>
-        </a>
+            <div class="absoluteCenters">
+              <img class="before_image" src="<?php the_field('before_image');?>" alt="" />
+              <img class="after_image" src="<?php the_field('after_image');?>" alt="" />
+              <span><?php the_title();?></span>
+            </div>
+          </a>
         </div>
+      </li>
       <?php endwhile; wp_reset_query();?>
-    </div>
+    </ul>
   </div>
 </section>
 

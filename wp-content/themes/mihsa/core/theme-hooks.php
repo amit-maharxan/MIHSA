@@ -70,6 +70,23 @@ if (!function_exists('mihsa_homepage_testimonial')){
 	}
 }
 
+if (!function_exists('mihsa_about_contents')){
+	function mihsa_about_contents(){
+		get_template_part('template-parts/pages/about/page', 'contents');
+	}
+}
+
+if (!function_exists('mihsa_policy_contents')){
+	function mihsa_policy_contents(){
+		get_template_part('template-parts/pages/policy/page', 'contents');
+	}
+}
+
+if (!function_exists('mihsa_contact_contents')){
+	function mihsa_contact_contents(){
+		get_template_part('template-parts/pages/contact/page', 'contents');
+	}
+}
 
 /*==================================================================================================
   Hooks
@@ -106,3 +123,18 @@ add_action( 'mihsa_homepage_content', 'mihsa_homepage_about', 20 );
 add_action( 'mihsa_homepage_content', 'mihsa_homepage_treatment', 30 );
 add_action( 'mihsa_homepage_content', 'mihsa_homepage_appointment', 40 );
 add_action( 'mihsa_homepage_content', 'mihsa_homepage_testimonial', 50 );
+
+/**
+ * About Hook
+ */
+add_action( 'mihsa_about_content', 'mihsa_about_contents', 10 );
+
+/**
+ * Policy Hook
+ */
+add_action( 'mihsa_policy_content', 'mihsa_policy_contents', 10 );
+
+/**
+ * Contact Hook
+ */
+add_action( 'mihsa_contact_content', 'mihsa_contact_contents', 10 );

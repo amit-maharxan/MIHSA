@@ -1,5 +1,5 @@
 <footer class="mainGrid">
-  <div class="breakout-inner">
+  <div class="breakout">
     <div class="fullCol footerContent">
       <span>Copyright © <?php echo date('Y');?> Mihsa Aesthetics. All rights reserved.</span>
       <ul class="iconGroup">
@@ -29,7 +29,7 @@
     document.getElementById(targetId).toggleAttribute('data-moreClicked');
   }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.0.8/dist/js/splide.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/splidejs/3.6.12/js/splide.min.js" defer></script>
 <script defer>
   document.addEventListener('DOMContentLoaded', function () {
     const splide = new Splide('#splide', {

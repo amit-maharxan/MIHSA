@@ -42,7 +42,7 @@ class mihsa_testimonial_post_type {
 	        'show_ui'            	=> true,
 	        'show_in_menu'       	=> true,
 	        'query_var'          	=> true,
-	        'rewrite'            	=> array( 'slug' => 'testimonial' ),
+	        'rewrite'            	=> array( 'slug' => 'testimonials' ),
 	        'capability_type'    	=> 'post',
 	        'has_archive'        	=> true,
 	        'hierarchical'       	=> true,
@@ -51,7 +51,7 @@ class mihsa_testimonial_post_type {
 	        'menu_icon'      		=> 'dashicons-marker',
 	    );
 
-	    register_post_type( 'testimonial', $args );
+	    register_post_type( 'testimonials', $args );
 	}
 
 }

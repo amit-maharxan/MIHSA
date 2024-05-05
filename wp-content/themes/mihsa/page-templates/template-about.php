@@ -12,5 +12,5 @@ do_action('mihsa_header'); ?>
          */
         do_action( 'mihsa_about_content' );
     ?>
-    
+
 <?php do_action('mihsa_footer'); ?>

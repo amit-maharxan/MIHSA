@@ -1,16 +1,16 @@
 <?php
 /**
- * Template Name: Community Layout
+ * Template Name: Policies Layout
  */
 
 do_action('mihsa_header'); ?>
 
 	<?php 
         /**
-         * mihsa_community_content hook
+         * mihsa_policy_content hook
          *
          */
-        do_action( 'mihsa_community_content' );
+        do_action( 'mihsa_policy_content' );
     ?>
 
 <?php do_action('mihsa_footer'); ?>
