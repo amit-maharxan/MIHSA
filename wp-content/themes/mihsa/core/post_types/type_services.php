@@ -47,8 +47,8 @@ class mihsa_services_post_type {
 	        'has_archive'        	=> true,
 	        'hierarchical'       	=> true,
 	        'menu_position'      	=> null,
-	        'supports'           	=> array( 'title', 'editor', 'thumbnail' ),
-	        'menu_icon'      		=> 'dashicons-marker',
+	        'supports'           	=> array( 'title', 'editor', 'thumbnail', 'page-attributes' ), // Add 'page-attributes' here
+	        'menu_icon'		=> 'dashicons-marker',
 	    );
 
 	    register_post_type( 'services', $args );

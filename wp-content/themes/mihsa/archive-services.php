@@ -13,7 +13,6 @@
                               <li><?php the_title();?></li>
                         </ul>
                   </div>
-                  <!-- <div class="squareThingy"></div> -->
             </div>
       </div>
 </section>
@@ -25,11 +24,10 @@
       class="serviceGrid">
       <?php
       $wp_query = new WP_Query(array(
-          'post_type'       => 'services', // Fetch regular WordPress posts
-          'posts_per_page'  => -1, // Number of posts to display
+          'post_type'       => 'services',
+          'posts_per_page'  => -1
       ));
       
-      // Loop through the WordPress posts
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
       <li>
         <div class="imgWrapper">
@@ -43,9 +41,12 @@
               <div class="contentWrapper" >
                 <div class="absoluteCenter">
 
-                  <h3 class="title w600">Dermal fillers</h3>
-                  <p class="desc">Dermal fillers provide a safe and effective method to enhance facial contours and address volume loss due to aging. As we age, our facial volume and structure diminish.</p>
-                  <span class="w600">Starting at $750</span>
+                  <h3 class="title w600"><?php the_title();?></h3>
+                  <p class="desc">
+                    <?php $content = get_the_content();
+                    echo substr($content, 0, 120); ?>
+                  </p>
+                  <span class="w600">Starting at <?php the_field('starting_from', $post->ID);?></span>
                   <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
                 </div>
               </div>
