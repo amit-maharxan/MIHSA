@@ -24,8 +24,8 @@
       </div>
 </section>
 
-<section class="mainGrids">
-  <div class="contents">
+<section class="mainGrid">
+  <div class="content">
     <?php
         if( have_rows('dates') ):
         while( have_rows('dates') ) : the_row(); ?>

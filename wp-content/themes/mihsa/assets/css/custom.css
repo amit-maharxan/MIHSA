@@ -840,10 +840,10 @@ a[class] {
   text-decoration: none;
 }
 
-a:not([class*=btn]) {
+a:not(:is([class*=btn], [class=no-hover])) {
   position: relative;
 }
-a:not([class*=btn])::before {
+a:not(:is([class*=btn], [class=no-hover]))::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -856,7 +856,7 @@ a:not([class*=btn])::before {
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
 }
-a:not([class*=btn]):hover::before {
+a:not(:is([class*=btn], [class=no-hover])):hover::before {
   transform-origin: left;
   transform: scaleX(1);
 }
@@ -1341,6 +1341,47 @@ section.contact form textarea {
 }
 .special_date img {
   margin-inline: auto;
+}
+
+.resultGrid {
+  display: grid;
+  gap: 1rem;
+  grid-column: 1/-1;
+  list-style: none;
+}
+@media (min-width: 950px) {
+  .resultGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.resultGrid .imgWrappers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.resultGrid .imgWrappers img {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.resultGrid .imgWrappers .imgWrapper {
+  position: relative;
+}
+.resultGrid .imgWrappers .imgWrapper:is(:first-child, :nth-child(2)):after {
+  content: "before";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--light);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.resultGrid .imgWrappers .imgWrapper:nth-child(2):after {
+  content: "after";
+}
+.resultGrid .imgWrappers .titleFancy {
+  grid-column: span 2;
+  font-size: var(--newsLeterHeading);
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=custom.css.map */

@@ -834,7 +834,7 @@ a:not([data-default]):not([class]):any-link,
 a[class] {
 	text-decoration: none;
 }
-a:not([class*='btn']) {
+a:not(:is([class*='btn'], [class='no-hover'])) {
 	position: relative;
 
 	&::before {
@@ -1353,5 +1353,44 @@ section.contact {
 	display: flex;
 	img {
 		margin-inline: auto;
+	}
+}
+//Results
+.resultGrid {
+	display: grid;
+	@media (min-width: 950px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	gap: 1rem;
+	grid-column: 1/-1;
+	list-style: none;
+	.imgWrappers {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		img {
+			width: 100%;
+			height: auto;
+			position: relative;
+		}
+		.imgWrapper {
+			position: relative;
+			&:is(:first-child, :nth-child(2)):after {
+				content: 'before';
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				color: var(--light);
+				font-weight: 600;
+				text-transform: capitalize;
+			}
+			&:nth-child(2):after {
+				content: 'after';
+			}
+		}
+		.titleFancy {
+			grid-column: span 2;
+			font-size: var(--newsLeterHeading);
+			font-weight: 400;
+		}
 	}
 }
