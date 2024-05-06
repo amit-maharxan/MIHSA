@@ -562,6 +562,7 @@ footer ul li span {
   top: 50%;
   display: grid;
   gap: 0.4rem;
+  width: 80%;
   text-align: center;
   place-content: center;
 }
@@ -572,13 +573,18 @@ footer ul li span {
 .treatmentGrid, .serviceGrid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 100%;
   list-style: none;
   font-size: var(--imgOverlayFontSize);
   font-weight: 300;
   color: var(--light);
   cursor: pointer;
+}
+@media (min-width: 565px) {
+  .treatmentGrid, .serviceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 768px) {
   .treatmentGrid, .serviceGrid {
@@ -620,8 +626,10 @@ footer ul li span {
   transition-duration: 300ms;
   transition-timing-function: ease;
 }
-.treatmentGrid li:nth-child(2), .serviceGrid li:nth-child(2) {
-  grid-row: span 2;
+@media (min-width: 565px) {
+  .treatmentGrid li:nth-child(2), .serviceGrid li:nth-child(2) {
+    grid-row: span 2;
+  }
 }
 .treatmentGrid li > img, .serviceGrid li > img {
   width: 100%;
@@ -776,6 +784,7 @@ footer ul li span {
 }
 .newsletterGrid .newsletterTitle {
   font-size: var(--newsLeterHeading);
+  line-height: var(--lgContentLineHeight);
 }
 
 .dashList {
@@ -1396,6 +1405,13 @@ section.blog-section .blog-image img {
 
 .p2r {
   padding-block: 2rem;
+}
+
+.polka {
+  background-image: radial-gradient(rgb(0, 0, 0) 23.2%, transparent 26%);
+  background-position: 36px 36px;
+  background-size: 72px 72px;
+  background-color: rgb(255, 255, 255);
 }
 
 /*# sourceMappingURL=custom.css.map */

@@ -554,6 +554,7 @@ footer {
 	top: 50%;
 	display: grid;
 	gap: 0.4rem;
+	width: 80%;
 	text-align: center;
 	place-content: center;
 	img {
@@ -563,8 +564,11 @@ footer {
 .treatmentGrid {
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(1, 1fr);
 	width: 100%;
+	@media (min-width: 565px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 	@media (min-width: 768px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
@@ -615,7 +619,9 @@ footer {
 		transition-duration: 300ms;
 		transition-timing-function: ease;
 		&:nth-child(2) {
-			grid-row: span 2;
+			@media (min-width: 565px) {
+				grid-row: span 2;
+			}
 		}
 		& > img {
 			width: 100%;
@@ -774,6 +780,7 @@ section:has(.testimonialGrid) {
 	}
 	.newsletterTitle {
 		font-size: var(--newsLeterHeading);
+		line-height: var(--lgContentLineHeight);
 	}
 }
 .dashList {
@@ -1410,4 +1417,11 @@ section.blog-section {
 
 .p2r {
 	padding-block: 2rem;
+}
+
+.polka {
+	background-image: radial-gradient(rgb(0, 0, 0) 23.2%, transparent 26%);
+	background-position: 36px 36px;
+	background-size: 72px 72px;
+	background-color: rgb(255, 255, 255);
 }
