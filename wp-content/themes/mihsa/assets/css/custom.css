@@ -203,7 +203,7 @@ section {
 }
 @supports not (grid-template-columns: subgrid) {
   .fullWidthOuter {
-    grid-template-columns: [fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] var(--padding-inline) [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end] var(--padding-inline) [fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
+    grid-template-columns: [fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] 0rem [breakout-start] minmax(var(--breakout-min-width), var(--breakout-size)) [content-start] calc(var(--content-size) / 2) [midLine] calc(var(--content-size) / 2) [content-end] minmax(var(--breakout-min-width), var(--breakout-size)) [breakout-end] 0rem [fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
   }
 }
 
@@ -288,7 +288,7 @@ nav[data-sm] {
   opacity: 0.5;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   nav[data-sm] {
     display: flex;
   }
@@ -1334,6 +1334,13 @@ section.contact form textarea {
   width: 250px;
   height: auto;
   object-fit: contain;
+}
+
+.special_date {
+  display: flex;
+}
+.special_date img {
+  margin-inline: auto;
 }
 
 /*# sourceMappingURL=custom.css.map */

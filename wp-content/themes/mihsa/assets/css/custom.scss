@@ -225,15 +225,13 @@ section {
 	grid-column: fullWidthOuter;
 	@supports not (grid-template-columns: subgrid) {
 		grid-template-columns:
-			[fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] var(
-				--padding-inline
-			)
+			[fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] 0rem
 			[breakout-start] minmax(var(--breakout-min-width), var(--breakout-size))
 			[content-start] calc(var(--content-size) / 2) [midLine] calc(
 				var(--content-size) / 2
 			)
 			[content-end] minmax(var(--breakout-min-width), var(--breakout-size))
-			[breakout-end] var(--padding-inline)
+			[breakout-end] 0rem
 			[fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
 	}
 }
@@ -320,7 +318,7 @@ nav[data-sm] {
 		}
 	}
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
 	nav[data-sm] {
 		display: flex;
 	}
@@ -1347,5 +1345,13 @@ section.contact {
 			height: auto;
 			object-fit: contain;
 		}
+	}
+}
+
+//Specials
+.special_date {
+	display: flex;
+	img {
+		margin-inline: auto;
 	}
 }
