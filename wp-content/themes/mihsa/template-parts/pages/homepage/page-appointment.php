@@ -7,7 +7,7 @@
       <span><?php the_field('app_title', 2);?></span>
       <span><?php the_field('app_phone_number', 2);?></span>
       <span><?php the_field('app_text', 2);?></span>
-      <div>
+      <div class="p2r">
         <a href="<?php the_field('app_button_url', 2);?>" class="btn-md btn-dark btn-pill">
           <?php the_field('app_button_text', 2);?>
         </a>

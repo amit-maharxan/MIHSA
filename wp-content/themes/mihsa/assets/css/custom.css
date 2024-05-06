@@ -41,6 +41,8 @@
   --lgContentLineHeight: 28px;
   --regularContentLineHeight: 24px;
   font-family: var(--font-primary);
+  accent-color: var(--logo-col);
+  caret-color: var(--logo-col);
   -webkit-font-smoothing: antialiased;
 }
 @media (max-width: 769px) {
@@ -817,17 +819,19 @@ footer ul li span {
 div:has(.newsletterGrid) {
   position: relative;
 }
-div:has(.newsletterGrid)::after {
-  z-index: -1;
-  content: "";
-  height: 110px;
-  width: 110px;
-  -webkit-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
-  -moz-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
-  box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
+@media (min-width: 950px) {
+  div:has(.newsletterGrid)::after {
+    z-index: -1;
+    content: "";
+    height: 110px;
+    width: 110px;
+    -webkit-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+    -moz-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+    box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
 }
 
 a:not([data-default]):not([class]):any-link,
@@ -1388,6 +1392,10 @@ section.blog-section .blog-image img {
   width: 100%;
   object-fit: cover;
   max-height: 400px;
+}
+
+.p2r {
+  padding-block: 2rem;
 }
 
 /*# sourceMappingURL=custom.css.map */

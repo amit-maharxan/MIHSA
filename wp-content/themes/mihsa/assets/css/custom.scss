@@ -45,6 +45,8 @@
 	--lgContentLineHeight: 28px;
 	--regularContentLineHeight: 24px;
 	font-family: var(--font-primary);
+	accent-color: var(--logo-col);
+	caret-color: var(--logo-col);
 	// font-size: var(--imgOverlayFontSize);
 	// line-height: var(--regularContentLineHeight);
 	@media (max-width: 769px) {
@@ -812,18 +814,19 @@ section:has(.testimonialGrid) {
 
 div:has(.newsletterGrid) {
 	position: relative;
-
-	&::after {
-		z-index: -1;
-		content: '';
-		height: 110px;
-		width: 110px;
-		-webkit-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
-		-moz-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
-		box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
-		position: absolute;
-		bottom: 10px;
-		left: 10px;
+	@media (min-width: 950px) {
+		&::after {
+			z-index: -1;
+			content: '';
+			height: 110px;
+			width: 110px;
+			-webkit-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+			-moz-box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+			box-shadow: -42px 56px 90px -10px rgb(175, 175, 175);
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+		}
 	}
 }
 a:not([data-default]):not([class]):any-link,
@@ -1403,4 +1406,8 @@ section.blog-section {
 			max-height: 400px;
 		}
 	}
+}
+
+.p2r {
+	padding-block: 2rem;
 }
