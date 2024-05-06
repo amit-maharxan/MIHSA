@@ -1384,4 +1384,10 @@ section.contact form textarea {
   font-weight: 400;
 }
 
+section.blog-section .blog-image img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 400px;
+}
+
 /*# sourceMappingURL=custom.css.map */
