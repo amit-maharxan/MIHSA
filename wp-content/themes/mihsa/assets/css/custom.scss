@@ -48,7 +48,17 @@
 	// font-size: var(--imgOverlayFontSize);
 	// line-height: var(--regularContentLineHeight);
 	@media (max-width: 769px) {
+		--lgContentFontSize: 16px;
+		--testimonialFontSize: 18px;
+		--testimonialAuthorFontSize: 20px;
+		--bannerMdFontSize: 22px;
+		--pLgFontSize: 24px;
+		--newsLeterHeading: 28px;
+		--headingSmFontSize: 36px;
+		--headingFontSize: 48px;
+		--bannerLgFontSize: 76px;
 		--bannerLgFontSize: 64px;
+		--monsterFontSize: 220px;
 	}
 	-webkit-font-smoothing: antialiased;
 }
@@ -144,16 +154,15 @@ section {
 	);
 	--fullWidth-size: minmax(var(--padding-inline), 1fr);
 	display: grid;
+	max-width: 100vw;
 	grid-template-columns:
-		[fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] var(
-			--padding-inline
-		)
+		[fullWidthOuter-start] var(--fullWidth-size) [fullWidth-start] 0rem
 		[breakout-start] minmax(var(--breakout-min-width), var(--breakout-size))
 		[content-start] calc(var(--content-size) / 2) [midLine] calc(
 			var(--content-size) / 2
 		)
 		[content-end] minmax(var(--breakout-min-width), var(--breakout-size))
-		[breakout-end] var(--padding-inline)
+		[breakout-end] 0rem
 		[fullWidth-end] var(--fullWidth-size) [fullWidthOuter-end];
 	display: grid;
 }
