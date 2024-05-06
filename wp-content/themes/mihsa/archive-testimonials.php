@@ -9,12 +9,11 @@
                   <h1 class="heading-title-sm margin-reset upper">Home</h1>
                   <div class="breadcrumb">
                         <ul class="flexList">
-                              <li><a href="<?php echo site_url();?>">Testimonials</a></li>
+                              <li><a href="<?php echo site_url();?>">Homepage</a></li>
                               <li>/</li>
-                              <li><?php the_title();?></li>
+                              <li>Testimonials</li>
                         </ul>
                   </div>
-                  <!-- <div class="squareThingy"></div> -->
             </div>
       </div>
 </section>

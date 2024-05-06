@@ -11,7 +11,6 @@
                               <li><?php the_title();?></li>
                         </ul>
                   </div>
-                  <!-- <div class="squareThingy"></div> -->
             </div>
       </div>
 </section>
@@ -23,14 +22,11 @@
                         <img src="<?php the_field('about_image');?>" alt="" />
                   </div>
                   <div class="contents">
-                        <!-- Content is wrapped in paragraphs, styled accordingly -->
-                        <!-- <p class="about-contents"> -->
-                              <?php the_content();?>
-                        <!-- </p> -->
+                        <?php the_content();?>
                         <div class="certification-images">
                               <?php if( have_rows('certification_images') ):
-                        while( have_rows('certification_images') ) : the_row(); ?>
-                              <img src="<?php the_sub_field('image');?>" alt="" />
+                              while( have_rows('certification_images') ) : the_row(); ?>
+                                    <img src="<?php the_sub_field('image');?>" alt="" />
                               <?php endwhile; endif; ?>
                         </div>
                   </div>

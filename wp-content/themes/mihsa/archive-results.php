@@ -10,10 +10,9 @@
                         <ul class="flexList">
                               <li><a href="<?php echo site_url();?>">Home</a></li>
                               <li>/</li>
-                              <li><?php the_title();?></li>
+                              <li>Results</li>
                         </ul>
                   </div>
-                  <!-- <div class="squareThingy"></div> -->
             </div>
       </div>
 </section>

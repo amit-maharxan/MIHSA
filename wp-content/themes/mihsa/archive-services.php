@@ -10,7 +10,7 @@
                         <ul class="flexList">
                               <li><a href="<?php echo site_url();?>">Home</a></li>
                               <li>/</li>
-                              <li><?php the_title();?></li>
+                              <li>Services</li>
                         </ul>
                   </div>
             </div>

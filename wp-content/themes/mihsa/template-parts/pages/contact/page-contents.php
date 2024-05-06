@@ -11,7 +11,6 @@
                               <li><?php the_title();?></li>
                         </ul>
                   </div>
-                  <!-- <div class="squareThingy"></div> -->
             </div>
       </div>
 </section>

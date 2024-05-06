@@ -23,16 +23,14 @@
     <div class="testimonials-lists blogGrid">
       <?php
       $wp_query = new WP_Query(array(
-          'post_type'       => 'post', // Fetch regular WordPress posts
-          'posts_per_page'  => 12, // Number of posts to display
+          'post_type'       => 'post',
+          'posts_per_page'  => 12
       ));
     
-      // Loop through the WordPress posts
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
         <div class="testimonialWrapper">
           <a href="<?php the_permalink();?>">
             <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
-            <!-- <img src="http://localhost/mihsa/wp-content/uploads/2024/04/FacialFillersImg.png" alt="" /> -->
             <div class="blog-details">
               <p class="added-on"><?php echo get_the_date();?></p>
             <h2 class="title"><?php the_title();?></h2>
