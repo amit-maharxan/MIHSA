@@ -59,8 +59,8 @@
 		--newsLeterHeading: 28px;
 		--headingSmFontSize: 36px;
 		--headingFontSize: 48px;
-		--bannerLgFontSize: 76px;
-		--bannerLgFontSize: 64px;
+		// --bannerLgFontSize: 64px;
+		--bannerLgFontSize: var(--headingFontSize);
 		--monsterFontSize: 220px;
 	}
 	-webkit-font-smoothing: antialiased;
@@ -520,6 +520,9 @@ footer {
 	}
 	.welcomeImgWrapper {
 		min-height: 800px;
+		@media (max-width: 600px) {
+			min-height: 400px;
+		}
 		width: 100%;
 		position: relative;
 		img {
@@ -1442,7 +1445,7 @@ section.blog-section {
 }
 
 .polka {
-	background-image: radial-gradient(rgb(0, 0, 0) 23.2%, transparent 26%);
+	background-image: radial-gradient(#b7b7b7 23.2%, transparent 26%);
 	background-position: 30px 30px;
 	background-size: 30px 30px;
 	background-color: rgb(255, 255, 255);
@@ -1478,13 +1481,6 @@ section.blog-section {
 	text-align: end;
 }
 
-.relative {
-	position: relative;
-}
-.pattern {
-	position: absolute;
-}
-
 #menu-header-menu-1 + a {
 	display: grid;
 	place-content: center;
@@ -1499,4 +1495,16 @@ section.blog-section {
 }
 section:has(.testimonialGrid) {
 	margin-block-end: calc(150rem / 16);
+}
+
+.relative {
+	position: relative;
+}
+.pattern {
+	position: absolute;
+	@media (max-width: 769px) {
+		display: none;
+	}
+	inset-inline: var(--inset-inline, 15%);
+	inset-block: var(--inset-block, 10%);
 }

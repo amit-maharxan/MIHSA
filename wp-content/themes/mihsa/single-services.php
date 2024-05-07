@@ -72,6 +72,9 @@ if (has_child_posts($current_post_id)) { ?>
                         ?>
                   </div>
             </div>
+            <div class="relative">
+                  <div class="polka pattern" data-insetInline="10% 50%" data-inset-block="10% 10%"></div>
+            </div>
       </div>
 </section>
 
