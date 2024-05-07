@@ -33,7 +33,7 @@
   --pLgFontSize: 27px;
   --newsLeterHeading: 32px;
   --headingSmFontSize: 48px;
-  --headingFontSize: 64px;
+  --headingFontSize: 48px;
   --bannerLgFontSize: 102px;
   --monsterFontSize: 365px;
   --fontWeightRegular: 400;
@@ -341,7 +341,7 @@ nav[data-sm] {
   font-family: var(--font-primary);
   font-weight: 600;
   text-transform: uppercase;
-  padding-block: 1.5rem;
+  padding-block: 0.5rem;
 }
 .header-bottom-content ul {
   display: flex;
@@ -510,6 +510,7 @@ footer ul li span {
   height: auto;
   max-height: 84vh;
   object-fit: cover;
+  filter: brightness(50%);
 }
 
 .banner-sm img {
@@ -607,6 +608,7 @@ footer ul li span {
   transition-timing-function: ease-in-out;
   transition-duration: 300ms;
   object-fit: cover;
+  filter: brightness(50%);
 }
 .treatmentGrid .absoluteCenter img, .serviceGrid .absoluteCenter img {
   width: 4rem;
@@ -706,6 +708,11 @@ footer ul li span {
   color: var(--quoteDark);
   font-family: Helvetica;
 }
+@media (max-width: 768px) {
+  .testimonialGrid .quote {
+    top: -8rem;
+  }
+}
 .testimonialGrid cite p {
   margin-block-start: 3rem;
   margin-block-end: 2rem;
@@ -767,16 +774,17 @@ footer ul li span {
 
 .newsletterGrid {
   --link-hover-col: var(--highlightGreen);
-  display: grid;
+  display: flex;
   row-gap: 2rem;
   column-gap: 1rem;
+  justify-content: space-between;
   font-family: var(--font-secondary);
   font-size: var(--regularFontSize);
   line-height: var(--newsletterLineHeight);
 }
-@media screen and (min-width: 768px) {
+@media (max-width: 999px) {
   .newsletterGrid {
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    flex-wrap: wrap;
   }
 }
 .newsletterGrid .grid-item {
@@ -1454,8 +1462,29 @@ section.blog-section .blog-image img {
   text-align: end;
 }
 
+.relative {
+  position: relative;
+}
+
 .pattern {
   position: absolute;
+}
+
+#menu-header-menu-1 + a {
+  display: grid;
+  place-content: center;
+}
+
+.header-bottom-content [data-lg] {
+  padding-block: 0.5rem;
+}
+
+.testimonialGrid h1 + a {
+  display: none;
+}
+
+section:has(.testimonialGrid) {
+  margin-block-end: 9.375rem;
 }
 
 /*# sourceMappingURL=custom.css.map */
