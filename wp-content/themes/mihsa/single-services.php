@@ -149,9 +149,12 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                               </span>
                               <?php } ?>
                         </div>
+                        <?php $service_book_now_url = get_field('service_book_now_url');
+                        if($service_book_now_url){ ?>
                         <div class="right-btn">
                               <a href="#" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
                         </div>
+                        <?php } ?>
                   </div>
 
                   <?php $price_per_session = get_field('price_per_session');
