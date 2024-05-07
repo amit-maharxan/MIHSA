@@ -510,10 +510,10 @@ footer ul li span {
   height: auto;
   max-height: 84vh;
   object-fit: cover;
-  filter: brightness(50%);
 }
 
 .banner-sm img {
+  filter: brightness(50%);
   max-height: 55vh;
 }
 
