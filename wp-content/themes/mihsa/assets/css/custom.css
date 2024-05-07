@@ -1261,8 +1261,8 @@ section.contact form textarea {
 }
 .serviceGrid li:nth-child(n+6) {
   height: auto;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: auto;
 }
 .serviceGrid .hoverContent {
   position: absolute;
@@ -1452,6 +1452,10 @@ section.blog-section .blog-image img {
 
 .right-btn {
   text-align: end;
+}
+
+.pattern {
+  position: absolute;
 }
 
 /*# sourceMappingURL=custom.css.map */
