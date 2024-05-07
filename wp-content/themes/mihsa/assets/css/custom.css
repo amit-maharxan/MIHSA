@@ -365,6 +365,7 @@ nav[data-sm] {
 .btn-sm, section.contact form .btn, form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding-inline: 1rem;
   width: max-content;
+  white-space: nowrap;
   padding-block: 0.75rem;
   margin-block: 1rem;
   cursor: pointer;
@@ -376,6 +377,7 @@ nav[data-sm] {
 .btn-md {
   padding-inline: 3rem;
   width: max-content;
+  white-space: nowrap;
   padding-block: 0.75rem;
   margin-block: 1rem;
   cursor: pointer;
@@ -1039,6 +1041,13 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
   gap: 1rem;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .service_contents .heading-section {
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    margin-bottom: 2rem;
+  }
+}
 .service_contents .heading-section .left-details,
 .service_contents .heading-section .right-btn {
   flex-grow: 1;
@@ -1409,9 +1418,40 @@ section.blog-section .blog-image img {
 
 .polka {
   background-image: radial-gradient(rgb(0, 0, 0) 23.2%, transparent 26%);
-  background-position: 36px 36px;
-  background-size: 72px 72px;
+  background-position: 30px 30px;
+  background-size: 30px 30px;
   background-color: rgb(255, 255, 255);
+}
+
+.treatments-section {
+  margin-block: 1rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .treatments-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.treatments-section .treatmentsTitle {
+  grid-column: 1/-1;
+  font-size: var(--bannerMdFontSize);
+}
+.treatments-section .child_post {
+  border: 1px solid var(--logo-col-light);
+  padding: 1rem;
+  text-align: center;
+  font-size: var(--blogDateFontSize);
+}
+.treatments-section .child_post h4 {
+  margin-block-end: 1rem;
+  font-size: var(--imgOverlayFontSize);
+  font-weight: 400;
+}
+
+.right-btn {
+  text-align: end;
 }
 
 /*# sourceMappingURL=custom.css.map */

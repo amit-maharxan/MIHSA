@@ -384,6 +384,7 @@ nav[data-sm] {
 }
 @mixin button {
 	width: max-content;
+	white-space: nowrap;
 	padding-block: 0.75rem;
 	margin-block: 1rem;
 	cursor: pointer;
@@ -1034,6 +1035,11 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 		display: flex;
 		gap: 1rem;
 		align-items: center;
+		@media screen and (max-width: 768px) {
+			flex-wrap: wrap;
+			row-gap: 2rem;
+			margin-bottom: 2rem;
+		}
 		.left-details,
 		.right-btn {
 			flex-grow: 1;
@@ -1421,7 +1427,37 @@ section.blog-section {
 
 .polka {
 	background-image: radial-gradient(rgb(0, 0, 0) 23.2%, transparent 26%);
-	background-position: 36px 36px;
-	background-size: 72px 72px;
+	background-position: 30px 30px;
+	background-size: 30px 30px;
 	background-color: rgb(255, 255, 255);
+}
+
+//Services-ALT
+.treatments-section {
+	margin-block: 1rem;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 1rem;
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.treatmentsTitle {
+		grid-column: 1/-1;
+		font-size: var(--bannerMdFontSize);
+	}
+	.child_post {
+		border: 1px solid var(--logo-col-light);
+		padding: 1rem;
+		text-align: center;
+		font-size: var(--blogDateFontSize);
+		h4 {
+			margin-block-end: 1rem;
+			font-size: var(--imgOverlayFontSize);
+			font-weight: 400;
+		}
+	}
+}
+
+.right-btn {
+	text-align: end;
 }

@@ -65,7 +65,7 @@ if (has_child_posts($current_post_id)) { ?>
                               
                               if ($child_posts) {
                                     foreach ($child_posts as $child_post) {
-                                          echo '<div class="child_post"><h4>' . $child_post->post_title . '</h4>
+                                          echo '<div class="child_post"><h4 class="matchHeight">' . $child_post->post_title . '</h4>
                                           <p class="starting_from">Starting from <b>' . get_field('starting_from', $child_post->ID) . '</b></p></div>';
                                     }
                               }
@@ -214,7 +214,22 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
 </section>
 <?php endif; ?>
 
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js" integrity="sha512-/bOVV1DV1AQXcypckRwsR9ThoCj7FqTV2/0Bm79bL3YSyLkVideFLE3MIZkq1u5t28ke1c0n31WYCOrO01dsUg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script defer>
+jQuery( document ).ready( function( $ ) {
+
+// matchHeight
+$(function() {
+    $('.matchHeight').matchHeight({
+        property: 'min-height'
+    });
+});
+
+});
+</script>
+
+
+<script defer>
       function toggleOpen(e){
             const clickedQuestion = e.currentTarget;
             const faqs = document.querySelectorAll('.question');
