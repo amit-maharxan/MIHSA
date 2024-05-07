@@ -27,7 +27,7 @@
           'post_type'       => 'services',
           'posts_per_page'  => -1,
           'orderby'         => 'menu_order',
-          'order'           => 'ASC'
+          'order'           => 'DESC'
       ));
       
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
