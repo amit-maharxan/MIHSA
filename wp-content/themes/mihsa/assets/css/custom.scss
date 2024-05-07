@@ -600,6 +600,7 @@ footer {
 	.absoluteCenter {
 		img {
 			width: 4rem;
+			filter: brightness(100%);
 		}
 		& > * {
 			transition-property: transform, color, filter;

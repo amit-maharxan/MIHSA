@@ -612,6 +612,7 @@ footer ul li span {
 }
 .treatmentGrid .absoluteCenter img, .serviceGrid .absoluteCenter img {
   width: 4rem;
+  filter: brightness(100%);
 }
 .treatmentGrid .absoluteCenter > *, .serviceGrid .absoluteCenter > * {
   transition-property: transform, color, filter;
