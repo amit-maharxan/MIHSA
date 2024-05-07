@@ -7,27 +7,24 @@
       id="treatmentGrid"
       class="treatmentGrid">
       <?php
-      $i = 1;
-      // Custom query to fetch WordPress posts
-      $wp_query = new WP_Query(array(
-          'post_type'       => 'services', // Fetch regular WordPress posts
-          'posts_per_page'  => 8, // Number of posts to display
-      ));
-      
-      // Loop through the WordPress posts
-      while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+      $featured_posts = get_field('story_select_treatments');
+      if( $featured_posts ):
+      foreach( $featured_posts as $featured_post ): 
+      $permalink = get_permalink( $featured_post );
+      $title = get_the_title( $featured_post );
+      $service_icon = get_field( 'service_icon', $featured_post ); ?>
       <li>
-        <a href="<?php the_permalink();?>">
-        <div class="imgWrapper">
-            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
+        <a href="<?php echo $permalink;?>">
+          <div class="imgWrapper">
+            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($featured_post) );?>" alt="" />
             <div class="absoluteCenter">
-              <img src="<?php the_field('service_icon');?>" alt="" />
-              <span><?php the_title();?></span>
+              <img src="<?php echo $service_icon;?>" alt="" />
+              <span><?php echo $title;?></span>
             </div>
           </div>
         </a>
       </li>
-      <?php endwhile; wp_reset_query();?>
+      <?php endforeach; endif; ?>
     </ul>
     <a href="<?php the_field('story_button_url');?>"
       class="btn-md btn-dark btn-pill floatRight"

@@ -25,7 +25,9 @@
       <?php
       $wp_query = new WP_Query(array(
           'post_type'       => 'services',
-          'posts_per_page'  => -1
+          'posts_per_page'  => -1,
+          'orderby'         => 'menu_order',
+          'order'           => 'DESC'
       ));
       
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
@@ -46,7 +48,10 @@
                     <?php $content = get_the_content();
                     echo substr($content, 0, 120); ?>
                   </p>
+                  <?php $starting_from = get_field('starting_from', $post->ID);
+                  if($starting_from){ ?>
                   <span class="w600">Starting at <?php the_field('starting_from', $post->ID);?></span>
+                  <?php } ?>
                   <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
                 </div>
               </div>
