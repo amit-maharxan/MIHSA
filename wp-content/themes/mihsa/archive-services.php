@@ -25,7 +25,9 @@
       <?php
       $wp_query = new WP_Query(array(
           'post_type'       => 'services',
-          'posts_per_page'  => -1
+          'posts_per_page'  => -1,
+          'orderby'         => 'menu_order',
+          'order'           => 'ASC'
       ));
       
       while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
