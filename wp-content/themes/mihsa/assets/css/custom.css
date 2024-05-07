@@ -1376,6 +1376,7 @@ section.contact form textarea {
 }
 .special_date img {
   margin-inline: auto;
+  max-width: 100%;
 }
 
 .resultGrid {
