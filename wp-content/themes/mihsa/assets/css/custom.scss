@@ -1265,8 +1265,8 @@ section.contact {
 	}
 	li:nth-child(n + 6) {
 		height: auto;
-		opacity: 0;
-		pointer-events: none;
+		opacity: 1;
+		pointer-events: auto;
 	}
 	.hoverContent {
 		position: absolute;
@@ -1460,4 +1460,10 @@ section.blog-section {
 
 .right-btn {
 	text-align: end;
+}
+
+.relative {
+}
+.pattern {
+	position: absolute;
 }
