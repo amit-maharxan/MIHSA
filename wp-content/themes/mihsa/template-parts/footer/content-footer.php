@@ -38,7 +38,7 @@
       arrows: false,
       pagination: false,
       autoplay: true,
-      interval: 10000,
+      interval: 5000,
     }).mount();
 
     var currentPageElement = document.querySelector('.current-page');
@@ -72,3 +72,11 @@
     });
   });
 </script>
+<script
+		defer
+		src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+		integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
