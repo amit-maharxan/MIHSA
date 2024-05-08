@@ -608,7 +608,7 @@ footer ul li span {
   height: auto;
   width: 100%;
   display: block;
-  transition-property: transform;
+  transition-property: transform, filter;
   transition-timing-function: ease-in-out;
   transition-duration: 300ms;
   object-fit: cover;
@@ -625,6 +625,7 @@ footer ul li span {
 }
 .treatmentGrid > *:hover .imgWrapper img, .serviceGrid > *:hover .imgWrapper img {
   transform: scale(1.1);
+  filter: brightness(25%);
 }
 .treatmentGrid > *:hover .absoluteCenter > *, .serviceGrid > *:hover .absoluteCenter > * {
   transform: scale(1.1);
