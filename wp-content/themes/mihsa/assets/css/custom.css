@@ -625,10 +625,11 @@ footer ul li span {
 }
 .treatmentGrid > *:hover .imgWrapper img, .serviceGrid > *:hover .imgWrapper img {
   transform: scale(1.1);
-  filter: brightness(25%);
+  filter: brightness(75%);
 }
 .treatmentGrid > *:hover .absoluteCenter > *, .serviceGrid > *:hover .absoluteCenter > * {
   transform: scale(1.1);
+  filter: brightness(100%);
 }
 .treatmentGrid li, .serviceGrid li {
   position: relative;

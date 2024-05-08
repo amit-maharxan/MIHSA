@@ -616,10 +616,11 @@ footer {
 	> *:hover {
 		.imgWrapper img {
 			transform: scale(1.1);
-			filter: brightness(25%);
+			filter: brightness(75%);
 		}
 		.absoluteCenter > * {
 			transform: scale(1.1);
+			filter: brightness(100%);
 			// filter: brightness(0) saturate(100%) invert(1);
 		}
 	}
