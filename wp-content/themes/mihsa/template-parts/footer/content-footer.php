@@ -1,3 +1,43 @@
+<?php
+function is_post_type($type){
+    global $wp_query;
+    if($type == get_post_type($wp_query->post->ID)) 
+        return true;
+    return false;
+} ?>
+
+<?php if (is_single('services') || is_post_type('services')){ ?>
+<script>
+  jQuery(document).ready(function(){
+    $('li#menu-item-161').addClass('active');
+  });
+</script>
+<?php } ?>
+
+<?php if (is_single('results') || is_post_type('results')){ ?>
+<script>
+  jQuery(document).ready(function(){
+    $('li#menu-item-160').addClass('active');
+  });
+</script>
+<?php } ?>
+
+<?php if (is_single('specials') || is_post_type('specials')){ ?>
+<script>
+  jQuery(document).ready(function(){
+    $('li#menu-item-159').addClass('active');
+  });
+</script>
+<?php } ?>
+
+<?php if (is_single('testimonials') || is_post_type('testimonials')){ ?>
+<script>
+  jQuery(document).ready(function(){
+    $('li#menu-item-158').addClass('active');
+  });
+</script>
+<?php } ?>
+
 <footer class="mainGrid">
   <div class="breakout">
     <div class="fullCol footerContent">
