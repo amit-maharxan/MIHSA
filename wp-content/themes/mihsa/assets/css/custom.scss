@@ -295,6 +295,7 @@ nav[data-sm] {
 				display: grid;
 				li {
 					padding-inline: 2rem;
+					flex-wrap: wrap;
 				}
 			}
 		}
@@ -318,6 +319,10 @@ nav[data-sm] {
 				z-index: 50;
 				opacity: 0.5;
 			}
+		}
+		.dropdown-menu {
+			padding-inline-start: 2rem;
+			box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
 		}
 	}
 }
@@ -1591,6 +1596,7 @@ input:has(+ .wpcf7-not-valid-tip) {
 	overflow: hidden;
 	top: 60%;
 	transition: height 300ms ease-in-out;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 *:has(> .dropdown-menu) {
 	position: relative;
