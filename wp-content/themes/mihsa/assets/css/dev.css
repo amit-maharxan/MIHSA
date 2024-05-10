@@ -6,3 +6,7 @@ a {
 ul#treatmentGrid span {
     color: white;
 }
+
+.wpcf7-list-item-label:hover {
+    cursor: pointer;
+}
