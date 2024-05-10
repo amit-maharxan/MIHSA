@@ -1554,9 +1554,9 @@ input:has(+ .wpcf7-not-valid-tip) {
   display: grid;
   position: absolute;
   background: white;
-  padding: 1rem;
+  padding: 0rem;
   left: -1rem;
-  gap: 1rem;
+  gap: 1.5rem;
   width: fit-content;
   margin-inline: auto;
   height: 0;
@@ -1570,6 +1570,7 @@ input:has(+ .wpcf7-not-valid-tip) {
 }
 *:has(> .dropdown-menu):hover .dropdown-menu {
   height: auto;
+  padding: 1rem;
 }
 
 /*# sourceMappingURL=custom.css.map */
