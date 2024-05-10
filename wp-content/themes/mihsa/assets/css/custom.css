@@ -588,7 +588,7 @@ footer ul li span {
   color: var(--light);
   cursor: pointer;
 }
-@media (min-width: 565px) {
+@media (min-width: 600px) {
   .treatmentGrid, .serviceGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -600,12 +600,12 @@ footer ul li span {
 }
 .treatmentGrid .imgWrapper, .serviceGrid .imgWrapper {
   width: 100%;
-  height: min-content;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
 .treatmentGrid .imgWrapper img, .serviceGrid .imgWrapper img {
-  height: auto;
+  height: 100%;
   width: 100%;
   display: block;
   transition-property: transform, filter;
@@ -613,6 +613,11 @@ footer ul li span {
   transition-duration: 300ms;
   object-fit: cover;
   filter: brightness(50%);
+}
+@media (max-width: 601px) {
+  .treatmentGrid .imgWrapper > img, .serviceGrid .imgWrapper > img {
+    aspect-ratio: 1;
+  }
 }
 .treatmentGrid .absoluteCenter img, .serviceGrid .absoluteCenter img {
   width: 4rem;
@@ -636,10 +641,12 @@ footer ul li span {
   transition-property: height, opacity;
   transition-duration: 300ms;
   transition-timing-function: ease;
+  aspect-ratio: 1;
 }
-@media (min-width: 565px) {
+@media (min-width: 600px) {
   .treatmentGrid li:nth-child(2), .serviceGrid li:nth-child(2) {
     grid-row: span 2;
+    aspect-ratio: 0.49;
   }
 }
 .treatmentGrid li > img, .serviceGrid li > img {
@@ -888,6 +895,10 @@ a:not(:is([class*=btn], [class=no-hover]))::before {
 }
 a:not(:is([class*=btn], [class=no-hover])):hover::before {
   transform-origin: left;
+  transform: scaleX(1);
+}
+
+:is(.current-menu-item, .active) a::before {
   transform: scaleX(1);
 }
 
@@ -1236,11 +1247,15 @@ section.contact form .wpcf7-form-control.wpcf7-checkbox {
   padding-inline: 0;
   gap: 1rem;
   margin-block: 1rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 section.contact form .wpcf7-list-item {
   margin: 0;
   display: flex;
   gap: 0.5rem;
+}
+section.contact form .wpcf7-form-control.wpcf7-checkbox:has(span input[name="consent[]"]) {
+  grid-template-columns: 1fr;
 }
 section.contact form label {
   font-weight: 600;
@@ -1253,7 +1268,7 @@ section.contact form .btn {
 section.contact form input,
 section.contact form textarea {
   border-radius: 0;
-  border: 1px solid var(--dark);
+  border: 1px solid var(--border-color, #000);
 }
 
 .serviceGrid li {
@@ -1262,12 +1277,19 @@ section.contact form textarea {
   transition-duration: 300ms;
   transition-timing-function: ease;
   overflow: hidden;
+  aspect-ratio: 1;
 }
-.serviceGrid li:nth-child(2) {
-  grid-row: span 2;
+@media (min-width: 600px) {
+  .serviceGrid li:nth-child(2) {
+    grid-row: span 2;
+    aspect-ratio: 0.49;
+  }
 }
-.serviceGrid li:nth-child(6) {
-  grid-column: span 2;
+@media (min-width: 600px) {
+  .serviceGrid li:nth-child(6) {
+    grid-column: span 2;
+    aspect-ratio: 2;
+  }
 }
 .serviceGrid li > img {
   width: 100%;
@@ -1322,6 +1344,7 @@ section.contact form textarea {
 .blogGrid .testimonialWrapper {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 1;
 }
 .blogGrid .testimonialWrapper .blog-details {
   color: var(--light);
@@ -1347,11 +1370,17 @@ section.contact form textarea {
 .blogGrid .testimonialWrapper:hover img {
   transform: scale(1.1);
 }
-.blogGrid .testimonialWrapper:nth-child(2) {
-  grid-row: span 2;
+@media (min-width: 600px) {
+  .blogGrid .testimonialWrapper:nth-child(2) {
+    grid-row: span 2;
+    aspect-ratio: 0.49;
+  }
 }
-.blogGrid .testimonialWrapper:nth-child(6) {
-  grid-column: span 2;
+@media (min-width: 600px) {
+  .blogGrid .testimonialWrapper:nth-child(6) {
+    grid-column: span 2;
+    aspect-ratio: 2;
+  }
 }
 
 .testimonialSectionGrid {
@@ -1384,6 +1413,7 @@ section.contact form textarea {
 .resultGrid {
   display: grid;
   gap: 1rem;
+  row-gap: 2.5rem;
   grid-column: 1/-1;
   list-style: none;
 }
@@ -1500,6 +1530,22 @@ section:has(.testimonialGrid) {
   .pattern {
     display: none;
   }
+}
+
+.mc4wp-success {
+  color: var(--highlightGreen);
+}
+
+.mc4wp-error {
+  color: red;
+}
+
+.wpcf7-not-valid-tip {
+  display: none;
+}
+
+input:has(+ .wpcf7-not-valid-tip) {
+  --border-color: red;
 }
 
 /*# sourceMappingURL=custom.css.map */
