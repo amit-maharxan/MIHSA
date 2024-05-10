@@ -377,8 +377,12 @@ nav[data-sm] {
 	font-weight: 600;
 	text-transform: uppercase;
 	padding-block: 0.5rem;
-}
-.header-bottom-content {
+	ul {
+		li {
+			align-content: center;
+			list-style-type: none;
+		}
+	}
 }
 .logoIcon {
 	width: clamp(200px, 5vw, 400px);
@@ -1569,11 +1573,12 @@ input:has(+ .wpcf7-not-valid-tip) {
 	margin-inline: auto;
 	height: 0;
 	overflow: hidden;
-	bottom: -240%;
+	top: -30%;
 	transition: height 300ms ease-in-out;
 }
 *:has(> .dropdown-menu) {
 	position: relative;
+	display: block;
 	&:hover {
 		.dropdown-menu {
 			height: auto;
