@@ -20,7 +20,7 @@
             <div class="blog-lists">
             <ul
               id="blogGrid"
-              class="blogGrid">
+              class="sideBlogGrid">
               <?php
               $wp_query = new WP_Query(array(
                   'post_type'       => 'post', // Fetch regular WordPress posts
@@ -35,7 +35,7 @@
                   <a href="<?php the_permalink();?>">
                     <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="" />
                     <div class="headerCenter">
-                      <img src="<?php the_field('service_icon');?>" alt="" />
+                      <!-- <img src="<?php the_field('service_icon');?>" alt="" /> -->
                       <span class="blog-title"><?php the_title();?></span>
                       <span class="blog-date">Added On: <?php echo get_the_date();?></span>
                     </div>

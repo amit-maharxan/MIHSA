@@ -1463,6 +1463,20 @@ section.blog-section .blog-image img {
   object-fit: cover;
   max-height: 400px;
 }
+section.blog-section .row {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 1rem;
+}
+section.blog-section .row .sideBlogGrid {
+  position: sticky;
+  top: 0;
+}
+section.blog-section .row .sideBlogGrid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
 
 .p2r {
   padding-block: 2rem;
@@ -1565,7 +1579,7 @@ input:has(+ .wpcf7-not-valid-tip) {
   margin-inline: auto;
   height: 0;
   overflow: hidden;
-  top: -30%;
+  top: 60%;
   transition: height 300ms ease-in-out;
 }
 

@@ -1477,6 +1477,20 @@ section.blog-section {
 			max-height: 400px;
 		}
 	}
+	.row {
+		display: grid;
+		grid-template-columns: 5fr 1fr;
+		gap: 1rem;
+		.sideBlogGrid {
+			position: sticky;
+			top: 0;
+			img {
+				width: 100%;
+				height: auto;
+				aspect-ratio: 1;
+			}
+		}
+	}
 }
 
 .p2r {
@@ -1573,7 +1587,7 @@ input:has(+ .wpcf7-not-valid-tip) {
 	margin-inline: auto;
 	height: 0;
 	overflow: hidden;
-	top: -30%;
+	top: 60%;
 	transition: height 300ms ease-in-out;
 }
 *:has(> .dropdown-menu) {
