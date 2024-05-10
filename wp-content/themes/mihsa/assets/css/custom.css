@@ -1465,6 +1465,7 @@ section.blog-section .blog-image img {
 }
 section.blog-section .row {
   display: grid;
+  grid-column: 1/-1;
   grid-template-columns: 5fr 1fr;
   gap: 1rem;
 }
