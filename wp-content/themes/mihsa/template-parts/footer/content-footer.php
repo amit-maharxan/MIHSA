@@ -38,6 +38,18 @@ function is_post_type($type){
 </script>
 <?php } ?>
 
+<script>
+    window.onload = function() {
+        var checkboxes = document.querySelectorAll('.wpcf7-list-item-label');
+        checkboxes.forEach(function(checkboxLabel) {
+            checkboxLabel.addEventListener('click', function() {
+                var checkbox = this.previousElementSibling;
+                checkbox.checked = !checkbox.checked;
+            });
+        });
+    };
+</script>
+
 <footer class="mainGrid">
   <div class="breakout">
     <div class="fullCol footerContent">
