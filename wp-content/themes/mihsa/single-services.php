@@ -164,7 +164,11 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   if($price_per_session){ ?>
                   <div class="price_per_session">
                         <b>Price Per Session</b>
-                        <?php the_field('price_per_session');?>
+                        <?php if( have_rows('price_per_session') ):
+                        while( have_rows('price_per_session') ) : the_row(); ?>
+                        <?php the_sub_field('price_text');?><br>
+                        <?php endwhile;?>
+                        <?php endif;?>
                   </div>
                   <?php } ?>
 
