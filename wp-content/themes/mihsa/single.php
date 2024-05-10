@@ -1,7 +1,7 @@
 <?php do_action('mihsa_header'); ?>
 
 <section class="blog-section mainGrid">
-      <div class="container content">
+      <div class="container breakout">
         <div class="row">
           <div class="align-items-center justify-content-between">
             <div id="blog-image" class="blog-image">

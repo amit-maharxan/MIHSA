@@ -1482,6 +1482,7 @@ section.blog-section {
 		grid-template-columns: 5fr 1fr;
 		gap: 1rem;
 		.sideBlogGrid {
+			list-style-type: none;
 			position: sticky;
 			top: 0;
 			img {

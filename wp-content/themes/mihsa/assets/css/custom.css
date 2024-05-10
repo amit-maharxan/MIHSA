@@ -1469,6 +1469,7 @@ section.blog-section .row {
   gap: 1rem;
 }
 section.blog-section .row .sideBlogGrid {
+  list-style-type: none;
   position: sticky;
   top: 0;
 }
