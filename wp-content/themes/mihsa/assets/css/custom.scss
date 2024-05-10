@@ -54,13 +54,13 @@
 		--lgContentFontSize: 16px;
 		--testimonialFontSize: 18px;
 		--testimonialAuthorFontSize: 20px;
-		--bannerMdFontSize: 22px;
+		--bannerMdFontSize: 20px;
 		--pLgFontSize: 24px;
 		--newsLeterHeading: 28px;
 		--headingSmFontSize: 36px;
 		--headingFontSize: 48px;
 		// --bannerLgFontSize: 64px;
-		--bannerLgFontSize: var(--headingFontSize);
+		--bannerLgFontSize: 38px;
 		--monsterFontSize: 220px;
 	}
 	-webkit-font-smoothing: antialiased;
@@ -503,6 +503,7 @@ footer {
 		width: 100%;
 		height: auto;
 		max-height: 84vh;
+		min-height: 80lvh;
 		object-fit: cover;
 	}
 }
@@ -511,6 +512,7 @@ footer {
 	img {
 		filter: brightness(50%);
 		max-height: 55vh;
+		min-height: 40vh;
 	}
 }
 .welcomeGrid {
@@ -1555,4 +1557,26 @@ section:has(.testimonialGrid) {
 
 input:has(+ .wpcf7-not-valid-tip) {
 	--border-color: red;
+}
+.dropdown-menu {
+	display: grid;
+	position: absolute;
+	background: white;
+	padding: 1rem;
+	left: -1rem;
+	gap: 1rem;
+	width: fit-content;
+	margin-inline: auto;
+	height: 0;
+	overflow: hidden;
+	bottom: -240%;
+	transition: height 300ms ease-in-out;
+}
+*:has(> .dropdown-menu) {
+	position: relative;
+	&:hover {
+		.dropdown-menu {
+			height: auto;
+		}
+	}
 }
