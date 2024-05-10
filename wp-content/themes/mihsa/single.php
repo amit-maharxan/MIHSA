@@ -4,8 +4,8 @@
       <div class="container content">
         <div class="row align-items-center justify-content-between">
           <div id="blog-image" class="blog-image">
-            <!-- <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> -->
-            <?php $url = "http://localhost/mihsa/wp-content/uploads/2024/04/FacialFillersImg.png" ; ?>
+            <!-- <?php $url = "http://localhost/mihsa/wp-content/uploads/2024/04/FacialFillersImg.png" ; ?> -->
+            <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="image">
           </div>
           <div class="blog-details">
