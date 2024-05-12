@@ -65,8 +65,12 @@ if (has_child_posts($current_post_id)) { ?>
                               
                               if ($child_posts) {
                                     foreach ($child_posts as $child_post) {
-                                          echo '<div class="child_post"><h4 class="matchHeight">' . $child_post->post_title . '</h4>
-                                          <p class="starting_from">Starting from <b>' . get_field('starting_from', $child_post->ID) . '</b></p></div>';
+                                          echo '<div class="child_post"><h4 class="matchHeight">' . $child_post->post_title . '</h4>';
+                                          $starting_from = get_field('starting_from', $child_post->ID);
+                                          if($starting_from){
+                                                echo '<p class="starting_from">Starting from <b>' . get_field('starting_from', $child_post->ID) . '</b></p>';
+                                          }
+                                          echo '</div>';
                                     }
                               }
                         ?>
@@ -96,8 +100,11 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   <div class="heading-section">
                         <div class="left-details">
                               <h1 class="title titleFancy"><?php echo $child_post->post_title;?></h1>
+                              
+                              <?php $starting_from = get_field('starting_from', $child_post->ID);
+                              if($starting_from){ ?>
                               <p class="starting_from">Starting from <b><?php echo get_field('starting_from', $child_post->ID);?></b></p>
-                              <?php $treatment_time = get_field('treatment_time', $child_post->ID);
+                              <?php } $treatment_time = get_field('treatment_time', $child_post->ID);
                               if($treatment_time){ ?>
                               <span class="time">
                                     <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,8 +154,10 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   <div class="heading-section">
                         <div class="left-details">
                               <h1 class="title titleFancy"><?php the_title();?></h1>
+                              <?php $starting_from = get_field('starting_from');
+                              if($starting_from){ ?>
                               <p class="starting_from">Starting from <b><?php echo get_field('starting_from');?></b></p>
-                              <?php $treatment_time = get_field('treatment_time');
+                              <?php } $treatment_time = get_field('treatment_time');
                               if($treatment_time){ ?>
                               <span class="time">
                                     <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
