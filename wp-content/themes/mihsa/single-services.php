@@ -129,10 +129,10 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   </div>
                   <?php } ?>
 
-                  <?php $content = get_the_content($child_post->ID);
+                  <?php $content = $child_post->post_content;
                   if($content){ ?>
                   <div class="description">
-                        <?php the_content($child_post->ID);?>
+                        <?php echo $content;?>
                   </div>
                   <?php } ?>
 
