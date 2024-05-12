@@ -46,6 +46,7 @@ require_once ( DK_FUNCTION.'/ajax-functions.php' );
 
 require_once ( DK_CORE.'/post_types/type_results.php' );
 require_once ( DK_CORE.'/post_types/type_services.php' );
+require_once ( DK_CORE.'/post_types/type_specials.php' );
 require_once ( DK_CORE.'/post_types/type_testimonial.php' );
 
 /**

@@ -96,6 +96,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   <div class="heading-section">
                         <div class="left-details">
                               <h1 class="title titleFancy"><?php echo $child_post->post_title;?></h1>
+                              <p class="starting_from">Starting from <b><?php echo get_field('starting_from', $child_post->ID);?></b></p>
                               <?php $treatment_time = get_field('treatment_time', $child_post->ID);
                               if($treatment_time){ ?>
                               <span class="time">
@@ -107,16 +108,17 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                               </span>
                               <?php } ?>
                         </div>
-                        <div class="right-btn">
-                              <a href="#" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
-                        </div>
                   </div>
 
                   <?php $price_per_session = get_field('price_per_session', $child_post->ID);
                   if($price_per_session){ ?>
                   <div class="price_per_session">
                         <b>Price Per Session</b>
-                        <?php the_field('price_per_session', $child_post->ID);?>
+                        <?php if( have_rows('price_per_session', $child_post->ID) ):
+                        while( have_rows('price_per_session', $child_post->ID) ) : the_row(); ?>
+                        <?php the_sub_field('price_text', $child_post->ID);?><br>
+                        <?php endwhile;?>
+                        <?php endif;?>
                   </div>
                   <?php } ?>
 
@@ -126,6 +128,10 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                         <?php the_content($child_post->ID);?>
                   </div>
                   <?php } ?>
+
+                  <div class="bottom-btn">
+                        <a href="#" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
+                  </div>
             </div>
       </div>
 </section>
@@ -141,6 +147,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   <div class="heading-section">
                         <div class="left-details">
                               <h1 class="title titleFancy"><?php the_title();?></h1>
+                              <p class="starting_from">Starting from <b><?php echo get_field('starting_from');?></b></p>
                               <?php $treatment_time = get_field('treatment_time');
                               if($treatment_time){ ?>
                               <span class="time">
@@ -148,16 +155,10 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                                           <path d="M9.00024 16.9998C13.1424 16.9998 16.5002 13.6419 16.5002 9.49976C16.5002 5.35762 13.1424 1.99976 9.00024 1.99976C4.85811 1.99976 1.50024 5.35762 1.50024 9.49976C1.50024 13.6419 4.85811 16.9998 9.00024 16.9998Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
                                           <path d="M9.00049 5V9.5L12.0005 11" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    <span>Starting From: <?php the_field('treatment_time');?></span>
+                                    <span>Treatment Time: <?php the_field('treatment_time');?></span>
                               </span>
                               <?php } ?>
                         </div>
-                        <?php $service_book_now_url = get_field('service_book_now_url');
-                        if($service_book_now_url){ ?>
-                        <div class="right-btn">
-                              <a href="<?php echo $service_book_now_url;?>" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
-                        </div>
-                        <?php } ?>
                   </div>
 
                   <?php $price_per_session = get_field('price_per_session');
@@ -178,6 +179,13 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                         <?php the_content();?>
                   </div>
                   <?php } ?>
+                  
+                  <?php $service_book_now_url = get_field('service_book_now_url');
+                  if($service_book_now_url){ ?>
+                  <div class="bottom-btn">
+                        <a href="<?php echo $service_book_now_url;?>" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
+                  </div>
+                  <?php } ?>
             </div>
       </div>
 </section>
@@ -186,8 +194,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
 <?php if( have_rows('perks_lists') ): ?>
 <section class="service-details-perks-contents mainGrid">
       <div class="content">
-
-                  <h3 class="w500">Perks of <?php the_title();?></h3>
+                  <h3 class="w500"><?php the_field('perks_title');?></h3>
                   <ul>
                   <?php if( have_rows('perks_lists') ):
                   while( have_rows('perks_lists') ) : the_row(); ?>

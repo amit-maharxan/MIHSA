@@ -26,13 +26,20 @@
 
 <section class="mainGrid">
   <div class="content">
-    <?php
-        if( have_rows('dates') ):
-        while( have_rows('dates') ) : the_row(); ?>
+      <?php
+      $wp_query = new WP_Query(array(
+          'post_type'       => 'specials', // Fetch regular WordPress posts
+          'posts_per_page'  => -1, // Number of posts to display
+      ));
+      
+      // Loop through the WordPress posts
+      while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
         <div class="special_date">
-            <img src="<?php the_sub_field('select_image');?>" alt="">
+            <a href="<?php the_permalink();?>">
+                  <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="">
+            </a>
         </div>
-    <?php endwhile; endif; ?>
+      <?php endwhile; wp_reset_query();?>
   </div>
 </section>
 
