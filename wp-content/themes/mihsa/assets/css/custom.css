@@ -18,6 +18,7 @@
   --highlightGreen: #99a833;
   --logo-col: #ab8f80;
   --logo-col-light: #bca59b;
+  --bannerColor: var(--logo-col);
   --service-bg-color: #fff5f1;
   --link-hover-col: var(--logo-col);
   --regularFontSize: 12px;
@@ -50,12 +51,12 @@
     --lgContentFontSize: 16px;
     --testimonialFontSize: 18px;
     --testimonialAuthorFontSize: 20px;
-    --bannerMdFontSize: 20px;
+    --bannerMdFontSize: 16px;
     --pLgFontSize: 24px;
     --newsLeterHeading: 28px;
     --headingSmFontSize: 32px;
     --headingFontSize: 36px;
-    --bannerLgFontSize: 38px;
+    --bannerLgFontSize: 46px;
     --monsterFontSize: 220px;
   }
 }
@@ -112,6 +113,11 @@
   font-weight: 300;
   src: local("Helvetica Light"), url("./assets/fonts/helvetica-light-587ebe5a59211.woff") format("woff");
 }
+input,
+textarea {
+  font-family: Montserrat;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -126,7 +132,7 @@ section {
 }
 
 .mainGrid {
-  --padding-inline: 2rem;
+  --padding-inline: 1rem;
   --content-max-width: 1280px;
   --breakout-max-width: 1400px;
   --breakout-min-width: 0rem;
@@ -315,6 +321,11 @@ nav[data-sm] {
   height: auto;
 }
 
+#hamburger.iconContainer {
+  display: grid;
+  place-content: center;
+}
+
 .header-top-bar-content {
   max-width: 100%;
   color: var(--darkGrey);
@@ -324,7 +335,7 @@ nav[data-sm] {
 }
 .header-top-bar-content ul {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding-block: 0.5rem;
 }
 .header-top-bar-content ul li {
@@ -340,6 +351,15 @@ nav[data-sm] {
     display: none;
   }
 }
+.header-top-bar-content ul li span.iconContainer {
+  width: 1.5rem;
+  display: grid;
+  place-content: center;
+}
+.header-top-bar-content ul li span.iconContainer svg,
+.header-top-bar-content ul li span.iconContainer img {
+  filter: invert(40%) sepia(0%) saturate(317%) hue-rotate(165deg) brightness(90%) contrast(78%);
+}
 
 .header-bottom-content {
   display: flex;
@@ -353,7 +373,7 @@ nav[data-sm] {
 }
 .header-bottom-content ul {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding-block: 0.5rem;
 }
 .header-bottom-content ul li {
@@ -492,12 +512,13 @@ footer .footerContent {
 footer .iconGroup {
   color: var(--footerIconGrey);
 }
+footer .iconGroup svg,
 footer .iconGroup img {
-  filter: brightness(0) saturate(100%) invert(48%) sepia(0%) saturate(167%) hue-rotate(188deg) brightness(94%) contrast(92%);
+  filter: invert(40%) sepia(0%) saturate(317%) hue-rotate(165deg) brightness(90%) contrast(78%);
 }
 footer ul {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding-block: 0.5rem;
 }
 footer ul li {
@@ -507,6 +528,10 @@ footer ul li {
 }
 footer ul li span {
   width: max-content;
+}
+footer ul li {
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .banner, .banner-sm {
@@ -525,10 +550,14 @@ footer ul li span {
   object-fit: cover;
 }
 
+.banner-sm {
+  background-color: var(--bannerColor);
+}
 .banner-sm img {
   filter: brightness(50%);
-  max-height: 55vh;
-  min-height: 40vh;
+  max-height: 45vh;
+  min-height: unset;
+  z-index: -1;
 }
 
 .welcomeGrid {
@@ -892,10 +921,12 @@ a[class] {
   text-decoration: none;
 }
 
-a:not(:is([class*=btn], [class=no-hover])) {
+a:is([class=hover-link]),
+.hover-link a:not(:is([class*=btn])) {
   position: relative;
 }
-a:not(:is([class*=btn], [class=no-hover]))::before {
+a:is([class=hover-link])::before,
+.hover-link a:not(:is([class*=btn]))::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -908,13 +939,24 @@ a:not(:is([class*=btn], [class=no-hover]))::before {
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
 }
-a:not(:is([class*=btn], [class=no-hover])):hover::before {
+a:is([class=hover-link]):hover::before,
+.hover-link a:not(:is([class*=btn])):hover::before {
   transform-origin: left;
   transform: scaleX(1);
 }
 
-:is(.current-menu-item, .active) a::before {
+.hover-link > :is(.current-menu-item, .active) > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: var(--link-hover-col);
+  bottom: -4px;
+  left: 0;
+  transform-origin: right;
   transform: scaleX(1);
+  transition: transform 0.3s ease-in-out;
 }
 
 form[data-name=Newsletter] .mc4wp-form-fields {
@@ -928,16 +970,17 @@ form[data-name=Newsletter] .mc4wp-form-fields p {
 form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding: 0.5rem;
   margin: 0;
+  border: 1px solid;
 }
 form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
-  padding-block: 0.4rem;
+  padding-block: 0.5rem;
 }
 .breadcrumb {
   text-align: center;
 }
 .breadcrumb ul {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   padding-block: 0.5rem;
 }
 .breadcrumb ul li {
@@ -1086,7 +1129,6 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
   .service_contents .heading-section {
     flex-wrap: wrap;
     row-gap: 2rem;
-    margin-bottom: 2rem;
   }
 }
 .service_contents .heading-section .left-details,
@@ -1114,6 +1156,7 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
 .service_contents .description {
   line-height: var(--regularContentLineHeight);
   color: var(--contentGrey);
+  margin-block: 2rem;
 }
 
 .titleFancy {
@@ -1272,13 +1315,16 @@ section.contact form .wpcf7-list-item {
 section.contact form .wpcf7-form-control.wpcf7-checkbox:has(span input[name="consent[]"]) {
   grid-template-columns: 1fr;
 }
+section.contact form input[name="consent[]"] {
+  align-self: start;
+  margin-top: 4px;
+}
 section.contact form label {
   font-weight: 600;
 }
 section.contact form .btn {
   font-size: var(--imgOverlayFontSize);
   font-weight: 600;
-  float: right;
 }
 section.contact form input,
 section.contact form textarea {

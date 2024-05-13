@@ -77,7 +77,7 @@
 
 <section class="mainGrid">
   <div class="breakout bg-light">
-    <div class="content newsletterGrid">
+    <div class="content newsletterGrid hover-link">
       <div class="grid-item">
         <h2 class="newsletterTitle">
           <?php the_field('footer_column_title_1', 'option');?>

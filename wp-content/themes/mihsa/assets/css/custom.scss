@@ -19,6 +19,7 @@
 	--highlightGreen: #99a833;
 	--logo-col: #ab8f80;
 	--logo-col-light: #bca59b;
+	--bannerColor: var(--logo-col);
 	--service-bg-color: #fff5f1;
 	--link-hover-col: var(--logo-col);
 	--regularFontSize: 12px;
@@ -54,13 +55,13 @@
 		--lgContentFontSize: 16px;
 		--testimonialFontSize: 18px;
 		--testimonialAuthorFontSize: 20px;
-		--bannerMdFontSize: 20px;
+		--bannerMdFontSize: 16px;
 		--pLgFontSize: 24px;
 		--newsLeterHeading: 28px;
 		--headingSmFontSize: 32px;
 		--headingFontSize: 36px;
 		// --bannerLgFontSize: 64px;
-		--bannerLgFontSize: 38px;
+		--bannerLgFontSize: 46px;
 		--monsterFontSize: 220px;
 	}
 	-webkit-font-smoothing: antialiased;
@@ -131,6 +132,11 @@ $font-url: './assets/fonts';
 		url('#{$font-url}/helvetica-light-587ebe5a59211.woff') format('woff');
 }
 
+input,
+textarea {
+	font-family: Montserrat;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -142,7 +148,7 @@ section {
 	margin-bottom: 4rem;
 }
 .mainGrid {
-	--padding-inline: 2rem;
+	--padding-inline: 1rem;
 	--content-max-width: 1280px;
 	//   --breakout-max-width: 1340px;
 	--breakout-max-width: 1400px;
@@ -347,12 +353,16 @@ nav[data-sm] {
 		height: auto;
 	}
 }
+#hamburger.iconContainer {
+	display: grid;
+	place-content: center;
+}
 // header[data-sticky]
 
 @mixin flexList {
 	ul {
 		display: flex;
-		gap: 1rem;
+		gap: 2rem;
 		padding-block: 0.5rem;
 		li {
 			display: flex;
@@ -374,6 +384,20 @@ nav[data-sm] {
 	justify-content: space-between;
 	@media screen and (max-width: 769px) {
 		display: none;
+	}
+	ul {
+		li {
+			span.iconContainer {
+				width: 1.5rem;
+				display: grid;
+				place-content: center;
+				svg,
+				img {
+					filter: invert(40%) sepia(0%) saturate(317%) hue-rotate(165deg)
+						brightness(90%) contrast(78%);
+				}
+			}
+		}
 	}
 }
 .header-bottom-content {
@@ -498,12 +522,19 @@ footer {
 	}
 	.iconGroup {
 		color: var(--footerIconGrey);
+		svg,
 		img {
-			filter: brightness(0) saturate(100%) invert(48%) sepia(0%) saturate(167%)
-				hue-rotate(188deg) brightness(94%) contrast(92%);
+			filter: invert(40%) sepia(0%) saturate(317%) hue-rotate(165deg)
+				brightness(90%) contrast(78%);
 		}
 	}
 	@include flexList();
+	ul {
+		li {
+			height: 1.5rem;
+			width: 1.5rem;
+		}
+	}
 }
 .banner {
 	position: relative;
@@ -522,10 +553,12 @@ footer {
 }
 .banner-sm {
 	@extend .banner;
+	background-color: var(--bannerColor);
 	img {
 		filter: brightness(50%);
-		max-height: 55vh;
-		min-height: 40vh;
+		max-height: 45vh;
+		min-height: unset;
+		z-index: -1;
 	}
 }
 .welcomeGrid {
@@ -889,7 +922,8 @@ a:not([data-default]):not([class]):any-link,
 a[class] {
 	text-decoration: none;
 }
-a:not(:is([class*='btn'], [class='no-hover'])) {
+a:is([class='hover-link']),
+.hover-link a:not(:is([class*='btn'])) {
 	position: relative;
 
 	&::before {
@@ -911,8 +945,18 @@ a:not(:is([class*='btn'], [class='no-hover'])) {
 		transform: scaleX(1);
 	}
 }
-:is(.current-menu-item, .active) a::before {
+.hover-link > :is(.current-menu-item, .active) > a::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	border-radius: 4px;
+	background-color: var(--link-hover-col);
+	bottom: -4px;
+	left: 0;
+	transform-origin: right;
 	transform: scaleX(1);
+	transition: transform 0.3s ease-in-out;
 }
 // footerForm
 form[data-name='Newsletter'] .mc4wp-form-fields {
@@ -927,9 +971,10 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 			padding: 0.5rem;
 			@extend .btn-sm;
 			margin: 0;
+			border: 1px solid;
 			// height: 100%;
 			&:not([type='submit']) {
-				padding-block: 0.4rem;
+				padding-block: 0.5rem;
 			}
 			&[type='submit'] {
 				@extend .btn-highlight;
@@ -1085,7 +1130,6 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 		@media screen and (max-width: 768px) {
 			flex-wrap: wrap;
 			row-gap: 2rem;
-			margin-bottom: 2rem;
 		}
 		.left-details,
 		.right-btn {
@@ -1113,6 +1157,7 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 	.description {
 		line-height: var(--regularContentLineHeight);
 		color: var(--contentGrey);
+		margin-block: 2rem;
 	}
 }
 .titleFancy {
@@ -1274,6 +1319,10 @@ section.contact {
 		.wpcf7-form-control.wpcf7-checkbox:has(span input[name='consent[]']) {
 			grid-template-columns: 1fr;
 		}
+		input[name='consent[]'] {
+			align-self: start;
+			margin-top: 4px;
+		}
 		label {
 			font-weight: 600;
 		}
@@ -1283,7 +1332,6 @@ section.contact {
 			@extend .btn-pill;
 			font-size: var(--imgOverlayFontSize);
 			font-weight: 600;
-			float: right;
 		}
 		input,
 		textarea {

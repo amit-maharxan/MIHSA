@@ -1,5 +1,5 @@
 <section class="mainGrid">
-      <div class="fullWidthOuter banner">
+      <div class="fullWidthOuter banner-sm">
             <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="" class="fullCol"/>
             <div class="absoluteCenter color-light">
