@@ -10,3 +10,7 @@ ul#treatmentGrid span {
 .wpcf7-list-item-label:hover {
     cursor: pointer;
 }
+
+html {
+    scroll-behavior: smooth;
+}

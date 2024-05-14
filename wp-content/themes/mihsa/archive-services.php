@@ -48,11 +48,22 @@
                     <?php $content = get_the_content();
                     echo substr($content, 0, 120); ?>
                   </p>
-                  <?php $starting_from = get_field('starting_from', $post->ID);
-                  if($starting_from){ ?>
-                  <span class="w600">Starting at <?php the_field('starting_from', $post->ID);?></span>
-                  <?php } ?>
-                  <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
+
+                  <div class="show_on_mobile">
+                    <?php $starting_from = get_field('starting_from', $post->ID);
+                    if($starting_from){ ?>
+                    <span class="w600">Starting at <?php the_field('starting_from', $post->ID);?></span>
+                    <?php } ?>
+                    <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
+                  </div>
+
+                  <div class="show_on_desktop">
+                    <?php $starting_from = get_field('starting_from', $post->ID);
+                    if($starting_from){ ?>
+                    <span class="w600">Starting at <?php the_field('starting_from', $post->ID);?></span>
+                    <?php } ?>
+                    <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
+                  </div>
                 </div>
               </div>
             </div>

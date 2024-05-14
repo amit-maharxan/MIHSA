@@ -134,6 +134,14 @@ class bs4Navwalker extends Walker_Nav_Menu
             $atts['class'] = 'dropdown-item';
         }
 
+        if ($depth == 1) {
+            $atts['class'] = 'first-dropdown-item';
+        }
+
+        if ($depth == 2) {
+            $atts['class'] = 'second-dropdown-item';
+        }
+
         if (in_array('current-menu-item', $item->classes)) {
             $atts['class'] .= ' active';
         }
