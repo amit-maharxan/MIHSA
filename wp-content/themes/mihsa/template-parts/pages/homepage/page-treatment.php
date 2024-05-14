@@ -25,16 +25,16 @@
                 <?php $starting_from = get_field('starting_from', $featured_post);
                 if($starting_from){ ?>
                 <span class="w600">Starting at <?php the_field('starting_from', $featured_post);?></span>
-                <?php } ?>
+                <?php } ?> <br>
                 <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
               </div>
-              <div class="show_on_desktop">
+              <!-- <div class="show_on_desktop">
                 <?php $starting_from = get_field('starting_from', $featured_post);
                 if($starting_from){ ?>
                 <span class="w600">Starting at <?php the_field('starting_from', $featured_post);?></span>
-                <?php } ?>
+                <?php } ?> <br>
                 <button class="btn-glass btn-sm btn-pill upper">Book Now</button>
-              </div>
+              </div> -->
             </div>
           </div>
         </a>

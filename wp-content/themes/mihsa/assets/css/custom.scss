@@ -1722,3 +1722,17 @@ li:has(> .dropdown-menu) {
 	}
 }
 
+.show_on_mobile, .show_on_desktop{
+	display: none;
+}
+
+.show_on_desktop{
+	@media (min-width: 769px) {
+		display: initial;
+	}
+}
+.show_on_mobile{
+	@media (max-width: 769px){
+		display: initial;
+	}
+}

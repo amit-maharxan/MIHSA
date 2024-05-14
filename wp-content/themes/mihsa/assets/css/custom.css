@@ -1717,4 +1717,20 @@ li:has(> .dropdown-menu):hover .dropdown-menu {
   font-size: 32px;
 }
 
+.show_on_mobile, .show_on_desktop {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .show_on_desktop {
+    display: initial;
+  }
+}
+
+@media (max-width: 769px) {
+  .show_on_mobile {
+    display: initial;
+  }
+}
+
 /*# sourceMappingURL=custom.css.map */
