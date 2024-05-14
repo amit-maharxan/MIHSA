@@ -66,6 +66,9 @@
 	}
 	-webkit-font-smoothing: antialiased;
 }
+html{
+	scroll-behavior: smooth;
+}
 $font-url: './assets/fonts';
 @font-face {
 	font-family: Montserrat;
@@ -1657,6 +1660,45 @@ input:has(+ .wpcf7-not-valid-tip) {
 		.dropdown-menu {
 			height: auto;
 			padding: 1rem;
+		}
+	}
+}
+
+.instagram{
+	display: grid;
+	// grid-template-columns: 1fr 20rem;
+	@media (min-width:768px) {
+		grid-template-columns: 1fr 20rem;
+	}
+	gap: 2rem;
+	.instagram_feeds{
+		flex-grow: 1;
+		#instagram-gallery-feed-0 .instagram-gallery-item {
+			padding: 2.5px;
+		}
+	}
+	.instagram_description{
+		display: grid;
+		row-gap: 2rem;
+		column-gap: 1rem;
+		text-align: start;
+		@media (max-width:769px) {
+			grid-auto-flow: column;
+			text-align: center;
+		}
+		align-content: center;
+		img,svg, img.emoji{
+			width: 2rem !important;
+			height: 2rem !important;
+		}
+		h3{
+			color: var(--quoteDark);
+			letter-spacing: 0px;
+			line-height: 40px;
+			font-size: 36px;
+			span:nth-of-type(2){
+				font-size: 32px;
+			}
 		}
 	}
 }
