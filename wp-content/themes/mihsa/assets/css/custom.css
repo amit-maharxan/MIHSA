@@ -1638,20 +1638,41 @@ input:has(+ .wpcf7-not-valid-tip) {
   gap: 1.5rem;
   width: fit-content;
   margin-inline: auto;
-  height: 0;
-  overflow: hidden;
+  visibility: hidden;
   top: 100%;
   transition: height 300ms ease-in-out;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
-*:has(> .dropdown-menu) {
+li:has(> .dropdown-menu) {
   position: relative;
   display: block;
 }
-*:has(> .dropdown-menu):hover .dropdown-menu {
-  height: auto;
+li:has(> .dropdown-menu):hover .dropdown-menu {
+  visibility: visible;
   padding: 1rem;
+}
+
+.first-dropdown-item {
+  position: relative;
+}
+.first-dropdown-item .dropdown-menu {
+  position: absolute;
+  left: 100%;
+  top: -100%;
+  bottom: unset;
+  right: unset;
+  z-index: 1;
+  visibility: hidden;
+  display: none;
+  transition: visibility 300ms ease-in-out;
+}
+.first-dropdown-item:hover {
+  overflow: visible;
+}
+.first-dropdown-item:hover .dropdown-menu {
+  visibility: visible;
+  display: grid;
 }
 
 .instagram {
