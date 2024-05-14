@@ -39,6 +39,7 @@
               <img src="<?php the_field('service_icon');?>" alt="" />
               <span><?php the_title();?></span>
               <div class="show_on_mobile">
+                  <br> <br>
                     <?php $starting_from = get_field('starting_from', $post->ID);
                     if($starting_from){ ?>
                     <span class="w600">Starting at <?php the_field('starting_from', $post->ID);?></span>

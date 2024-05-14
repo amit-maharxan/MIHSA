@@ -306,6 +306,7 @@ nav[data-sm] {
   position: relative;
   padding: 1rem;
   padding-inline-start: 2rem;
+  visibility: visible;
 }
 
 @media (max-width: 960px) {
