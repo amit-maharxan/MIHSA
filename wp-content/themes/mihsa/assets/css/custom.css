@@ -307,6 +307,7 @@ nav[data-sm] {
   padding: 1rem;
   padding-inline-start: 2rem;
   visibility: visible;
+  opacity: 1;
 }
 
 @media (max-width: 960px) {
@@ -1641,17 +1642,25 @@ input:has(+ .wpcf7-not-valid-tip) {
   margin-inline: auto;
   visibility: hidden;
   top: 100%;
-  transition: height 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
 }
 
 li:has(> .dropdown-menu) {
   position: relative;
   display: block;
 }
-li:has(> .dropdown-menu):hover .dropdown-menu {
-  visibility: visible;
-  padding: 1rem;
+@media (min-width: 768px) {
+  li:has(> .dropdown-menu):hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    padding-block: 1rem;
+    padding-inline-start: 1rem;
+  }
+  li:has(> .dropdown-menu):hover .dropdown-menu > a {
+    padding-inline-end: 1rem;
+  }
 }
 
 .first-dropdown-item {
@@ -1666,12 +1675,14 @@ li:has(> .dropdown-menu):hover .dropdown-menu {
   z-index: 1;
   visibility: hidden;
   display: none;
-  transition: visibility 300ms ease-in-out;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
 }
 .first-dropdown-item:hover {
   overflow: visible;
 }
 .first-dropdown-item:hover .dropdown-menu {
+  opacity: 1;
   visibility: visible;
   display: grid;
 }
