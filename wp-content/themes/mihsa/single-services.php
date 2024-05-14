@@ -65,12 +65,15 @@ if (has_child_posts($current_post_id)) { ?>
                               
                               if ($child_posts) {
                                     foreach ($child_posts as $child_post) {
-                                          echo '<div class="child_post"><h4 class="matchHeight">' . $child_post->post_title . '</h4>';
+                                          echo '<div class="child_post">
+                                          <a href="#" class="scroll-to-div" data-slug="'.get_post_field('post_name', $child_post->ID).'">
+                                          <h4 class="matchHeight">' . $child_post->post_title . '</h4>';
                                           $starting_from = get_field('starting_from', $child_post->ID);
                                           if($starting_from){
                                                 echo '<p class="starting_from">Starting from <b>' . get_field('starting_from', $child_post->ID) . '</b></p>';
                                           }
-                                          echo '</div>';
+                                          echo '</a>
+                                          </div>';
                                     }
                               }
                         ?>
@@ -91,7 +94,7 @@ if ($child_posts) {
 foreach ($child_posts as $child_post) {
 $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 'large' ); ?>
 
-<section class="service-details-page-contents mainGrid">
+<section class="service-details-page-contents mainGrid" id="<?php echo get_post_field('post_name', $child_post->ID);?>">
       <div class="service_contents content">
             <div class="image">
                   <img src="<?php echo $image[0];?>" alt="" class=""/>
@@ -105,7 +108,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                               if($starting_from){ ?>
                               <span class="starting_from time">
                                     <svg fill="#000000" width="18px" height="19px" viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12.32 8a3 3 0 0 0-2-.7H5.63A1.59 1.59 0 0 1 4 5.69a2 2 0 0 1 0-.25 1.59 1.59 0 0 1 1.63-1.33h4.62a1.59 1.59 0 0 1 1.57 1.33h1.5a3.08 3.08 0 0 0-3.07-2.83H8.67V.31H7.42v2.3H5.63a3.08 3.08 0 0 0-3.07 2.83 2.09 2.09 0 0 0 0 .25 3.07 3.07 0 0 0 3.07 3.07h4.74A1.59 1.59 0 0 1 12 10.35a1.86 1.86 0 0 1 0 .34 1.59 1.59 0 0 1-1.55 1.24h-4.7a1.59 1.59 0 0 1-1.55-1.24H2.69a3.08 3.08 0 0 0 3.06 2.73h1.67v2.27h1.25v-2.27h1.7a3.08 3.08 0 0 0 3.06-2.73v-.34A3.06 3.06 0 0 0 12.32 8z"></path></g></svg>
-                                    <span>Starting from <b><?php echo get_field('starting_from');?></b></span>
+                                    <span>Starting from <b><?php echo get_field('starting_from', $child_post->ID);?></b></span>
                               </span>
                               <?php } $treatment_time = get_field('treatment_time', $child_post->ID);
                               if($treatment_time){ ?>
@@ -255,6 +258,14 @@ $(function() {
     $('.matchHeight').matchHeight({
         property: 'min-height'
     });
+});
+
+$('.scroll-to-div').click(function(e) {
+    e.preventDefault();
+    var slug = $(this).attr('data-slug');
+    $('html, body').animate({
+        scrollTop: $("#"+slug).offset().top - 150
+    }, 500);
 });
 
 });

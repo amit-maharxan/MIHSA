@@ -50,6 +50,14 @@ function is_post_type($type){
     };
 </script>
 
+<script>
+$(document).ready(function() {
+    $('.first-dropdown-item').each(function() {
+        $(this).next('.dropdown-menu').appendTo($(this));
+    });
+});
+</script>
+
 <footer class="mainGrid">
   <div class="breakout">
     <div class="fullCol footerContent">
