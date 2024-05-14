@@ -16,6 +16,20 @@
   </div>
 </section>
 
+<section class="mainGrid">
+  <div class="fullWidthOuter instagram">
+    <div class="instagram_feeds">
+      <?php echo do_shortcode('[insta-gallery id="0"]');?>
+    </div>
+    <div class="instagram_description">
+      <span style="color: #e02b40"> ❤ </span>
+      <h3>Follow <br>
+      <a href="https://www.instagram.com/mihsa.aesthetics/" target="_blank">#MihsaAesthetics</a></h3>
+      <img src="<?php echo site_url('wp-content/uploads/2024/04/instagram-logo.png');?>" alt=""/>
+      </div>
+  </div>
+</section>
+
 <?php if(is_front_page()){ ?>
   <section class="mainGrid">
     <div class="content testimonialGrid">
@@ -91,21 +105,13 @@
         <h2 class="newsletterTitle">
           <?php the_field('footer_column_title_2', 'option');?>
         </h2>
-
-        <ul class="dashList">
-          <li>
-            <a href="<?php the_field('instagram', 'option');?>" target="_blank">Instagram</a>
-          </li>
-          <li>
-            <a href="<?php the_field('linkedin', 'option');?>" target="_blank">Linkedin</a>
-          </li>
-          <li>
-            <a href="<?php the_field('facebook', 'option');?>" target="_blank">Facebook</a>
-          </li>
-          <li>
-            <a href="<?php the_field('twitter', 'option');?>" target="_blank">Twitter</a>
-          </li>
-        </ul>
+        <?php
+            wp_nav_menu( array(
+                'menu'           => 'Footer Menu',
+                'theme_location' => 'footer-menu',
+                'menu_class'     => "dashList",
+            ) );
+        ?>
       </div>
       <div class="grid-item">
         <h2 class="newsletterTitle">
