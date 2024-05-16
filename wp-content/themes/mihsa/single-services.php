@@ -142,9 +142,12 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   </div>
                   <?php } ?>
 
+                  <?php $service_book_now_url = get_field('service_book_now_url', $child_post->ID);
+                  if($service_book_now_url){ ?>
                   <div class="bottom-btn">
-                        <a href="#" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
+                        <a href="<?php echo $service_book_now_url;?>" class="btn-sm btn-dark btn-pill w600 upper" target="_blank">BOOK NOW</a>
                   </div>
+                  <?php } ?>
             </div>
       </div>
 </section>
