@@ -19,7 +19,7 @@
 <section class="mainGrid">
   <div class="content instagram">
     <div class="instagram_feeds">
-      <?php echo do_shortcode('[feed_them_social cpt_id=359]');?>
+      <?php echo do_shortcode('[feed_them_social cpt_id=428]');?>
     </div>
     <div class="instagram_description">
       <span style="color: #e02b40"> ❤ </span>
