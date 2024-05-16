@@ -19,7 +19,7 @@
             <span class="iconContainer">
               <img src="<?php echo site_url('wp-content/uploads/2024/04/location-svgrepo-com.png');?>" alt="" class="footerTopIconfilter" />
             </span>
-            <span><?php the_field('footer_address', 'option');?></span>
+            <span><a href="<?php the_field('map_url', 'option');?>" target="_blank"><?php the_field('footer_address', 'option');?></a></span>
           </li>
         </ul>
         <ul>
