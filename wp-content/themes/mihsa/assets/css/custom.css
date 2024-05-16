@@ -761,7 +761,7 @@ footer ul li {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  min-height: 80vh;
+  min-height: 48vh;
 }
 
 @media (min-width: 768px) {
