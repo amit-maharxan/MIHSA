@@ -161,7 +161,7 @@ section {
 		(var(--breakout-max-width) - var(--content-max-width)) / 2
 	);
 	--content-size: min(
-		100% - var(--padding-inline) * 2,
+		100% - var(--padding-inline) * 2 - var(--breakout-min-width) * 2 + 1px,
 		var(--content-max-width)
 	);
 	--fullWidth-size: minmax(var(--padding-inline), 1fr);
@@ -300,12 +300,18 @@ nav[data-sm] {
 			padding-inline: 1rem;
 			height: 100%;
 			z-index: 100;
+			position: relative;
 			ul {
 				display: grid;
 				li {
 					padding-inline: 2rem;
 					flex-wrap: wrap;
 				}
+			}
+			.close{
+				position: absolute;
+				right: 1.5rem;
+				top: 1.5rem;
 			}
 		}
 		&::before {
@@ -391,6 +397,7 @@ nav[data-sm] {
 		display: none;
 	}
 	ul {
+		gap: 1rem;
 		li {
 			span.iconContainer {
 				width: 1.5rem;
@@ -524,9 +531,14 @@ footer {
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
+		row-gap: 1rem;
 	}
 	.iconGroup {
 		color: var(--footerIconGrey);
+		@media(max-width:600px){
+			order: 1;
+			width: 100%;
+		}
 		svg,
 		img {
 			filter: invert(40%) sepia(0%) saturate(317%) hue-rotate(165deg)
@@ -535,6 +547,7 @@ footer {
 	}
 	@include flexList();
 	ul {
+		padding-block: 0px;
 		li {
 			height: 1.5rem;
 			width: 1.5rem;
@@ -561,7 +574,7 @@ footer {
 	background-color: var(--bannerColor);
 	img {
 		filter: brightness(50%);
-		max-height: 45vh;
+		max-height: 30vh;
 		min-height: unset;
 		z-index: -1;
 	}
@@ -898,6 +911,7 @@ section:has(.testimonialGrid) {
 	gap: 0.75rem;
 	li {
 		display: grid;
+		gap: 1rem;
 		grid-template-columns: 1fr 1fr;
 	}
 }
@@ -977,6 +991,7 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 			@extend .btn-sm;
 			margin: 0;
 			border: 1px solid;
+			border-radius: 0px;
 			// height: 100%;
 			&:not([type='submit']) {
 				padding-block: 0.5rem;
@@ -1190,7 +1205,9 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
 			--gap: calc(24rem / 16);
 			list-style-position: inside;
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
+			@media(min-width:768px){
+				grid-template-columns: repeat(2, 1fr);
+			}
 			list-style: none;
 			padding-left: 0;
 			padding-block-start: var(--gap);
@@ -1485,6 +1502,7 @@ section.contact {
 //Specials
 .special_date {
 	display: flex;
+	justify-content: center;
 	img {
 		margin-inline: auto;
 		max-width: 100%;
@@ -1654,7 +1672,8 @@ input:has(+ .wpcf7-not-valid-tip) {
 	transition: opacity 300ms ease-in-out;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	opacity: 0;
-
+	width: max-content;
+	text-transform: capitalize;
 }
 li:has(> .dropdown-menu) {
 	position: relative;
@@ -1723,6 +1742,9 @@ li:has(> .dropdown-menu) {
 		img,svg, img.emoji{
 			width: 2rem !important;
 			height: 2rem !important;
+			@media (max-width: 600px) {
+				display: none!important;
+			}
 		}
 		h3{
 			color: var(--quoteDark);

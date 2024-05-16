@@ -144,7 +144,7 @@ section {
   	(var(--breakout-max-width) - var(--content-max-width)) / 2
   );
   --content-size: min(
-  	100% - var(--padding-inline) * 2,
+  	100% - var(--padding-inline) * 2 - var(--breakout-min-width) * 2 + 1px,
   	var(--content-max-width)
   );
   --fullWidth-size: minmax(var(--padding-inline), 1fr);
@@ -270,6 +270,7 @@ nav[data-sm] {
   padding-inline: 1rem;
   height: 100%;
   z-index: 100;
+  position: relative;
 }
 .header-bottom-content .menu-drawer .menu-drawer-content ul {
   display: grid;
@@ -277,6 +278,11 @@ nav[data-sm] {
 .header-bottom-content .menu-drawer .menu-drawer-content ul li {
   padding-inline: 2rem;
   flex-wrap: wrap;
+}
+.header-bottom-content .menu-drawer .menu-drawer-content .close {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
 }
 .header-bottom-content .menu-drawer::before {
   content: "";
@@ -356,6 +362,9 @@ nav[data-sm] {
   .header-top-bar-content {
     display: none;
   }
+}
+.header-top-bar-content ul {
+  gap: 1rem;
 }
 .header-top-bar-content ul li span.iconContainer {
   width: 1.5rem;
@@ -514,9 +523,16 @@ footer .footerContent {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  row-gap: 1rem;
 }
 footer .iconGroup {
   color: var(--footerIconGrey);
+}
+@media (max-width: 600px) {
+  footer .iconGroup {
+    order: 1;
+    width: 100%;
+  }
 }
 footer .iconGroup svg,
 footer .iconGroup img {
@@ -534,6 +550,9 @@ footer ul li {
 }
 footer ul li span {
   width: max-content;
+}
+footer ul {
+  padding-block: 0px;
 }
 footer ul li {
   height: 1.5rem;
@@ -561,7 +580,7 @@ footer ul li {
 }
 .banner-sm img {
   filter: brightness(50%);
-  max-height: 45vh;
+  max-height: 30vh;
   min-height: unset;
   z-index: -1;
 }
@@ -896,6 +915,7 @@ footer ul li {
 }
 .duoColGrid li {
   display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -977,6 +997,7 @@ form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding: 0.5rem;
   margin: 0;
   border: 1px solid;
+  border-radius: 0px;
 }
 form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
   padding-block: 0.5rem;
@@ -1191,10 +1212,14 @@ form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
   --gap: calc(24rem / 16);
   list-style-position: inside;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   list-style: none;
   padding-left: 0;
   padding-block-start: var(--gap);
+}
+@media (min-width: 768px) {
+  .service-details-perks-contents .content ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .service-details-perks-contents .content ul li {
   position: relative;
@@ -1471,6 +1496,7 @@ section.contact form textarea {
 
 .special_date {
   display: flex;
+  justify-content: center;
 }
 .special_date img {
   margin-inline: auto;
@@ -1645,6 +1671,8 @@ input:has(+ .wpcf7-not-valid-tip) {
   transition: opacity 300ms ease-in-out;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  width: max-content;
+  text-transform: capitalize;
 }
 
 li:has(> .dropdown-menu) {
@@ -1718,6 +1746,11 @@ li:has(> .dropdown-menu) {
 .instagram .instagram_description img, .instagram .instagram_description svg, .instagram .instagram_description img.emoji {
   width: 2rem !important;
   height: 2rem !important;
+}
+@media (max-width: 600px) {
+  .instagram .instagram_description img, .instagram .instagram_description svg, .instagram .instagram_description img.emoji {
+    display: none !important;
+  }
 }
 .instagram .instagram_description h3 {
   color: var(--quoteDark);
