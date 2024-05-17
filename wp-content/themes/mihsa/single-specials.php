@@ -1,6 +1,6 @@
 <?php do_action('mihsa_header'); ?>
 
-<!-- <section class="mainGrid">
+<section class="mainGrid">
       <div class="fullWidthOuter banner-sm">
             <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
             <img src="<?php echo $url;?>" alt="" class="fullCol"/>
@@ -10,19 +10,28 @@
                         <ul class="flexList">
                               <li><a href="<?php echo site_url();?>">Home</a></li>
                               <li>/</li>
-                              <li><a href="<?php echo site_url('monthly-specials');?>">Monthly Specials</a></li>
+                              <li>Specials</li>
                               <li>/</li>
                               <li><?php the_title();?></li>
                         </ul>
                   </div>
             </div>
       </div>
-</section> -->
+</section>
 
-<section class="specials-details-perks-contents mainGrid">
-        <div class="contents">
-            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="">
-        </div>
+<section class="mainGrid">
+      <div class="content">
+            <div class="special_date">
+                  <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) );?>" alt="">
+            </div>
+            <?php $special_title = get_field('special_title');
+            if($special_title){ ?>
+            <div class="special_description">
+                  <h3><?php the_field('special_title');?></h3>
+                  <p><?php the_field('special_description');?></p>
+            </div>
+            <?php } ?>
+      </div>
 </section>
 
 <?php do_action('mihsa_footer'); ?>

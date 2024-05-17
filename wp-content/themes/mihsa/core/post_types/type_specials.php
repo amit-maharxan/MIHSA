@@ -47,8 +47,8 @@ class mihsa_specials_post_type {
 	        'has_archive'        	=> true,
 	        'hierarchical'       	=> true,
 	        'menu_position'      	=> null,
-	        'supports'           	=> array( 'title', 'editor', 'thumbnail' ),
-	        'menu_icon'      		=> 'dashicons-marker',
+	        'supports'           	=> array( 'title', 'thumbnail' ),
+	        'menu_icon'		=> 'dashicons-marker',
 	    );
 
 	    register_post_type( 'specials', $args );
