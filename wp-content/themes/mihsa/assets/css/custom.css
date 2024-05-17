@@ -1004,9 +1004,10 @@ form[data-name=Newsletter] .mc4wp-form-fields p input {
   border: 1px solid;
   border-radius: 0px;
 }
-form[data-name=Newsletter] .mc4wp-form-fields p input:not([type=submit]) {
-  padding-block: 0.5rem;
+form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {
+  height: 100%;
 }
+
 .breadcrumb {
   text-align: center;
 }
@@ -1573,7 +1574,8 @@ section.blog-section .row .sideBlogGrid img {
 }
 
 .p2r {
-  padding-block: 2rem;
+  padding-block-start: 2rem;
+  padding-block-end: 1rem;
 }
 
 .polka {
@@ -1786,18 +1788,15 @@ li:has(> .dropdown-menu) {
 }
 @media (max-width: 769px) {
   .instagram .instagram_description {
-    grid-auto-flow: column;
     text-align: center;
+    place-content: center;
+    place-items: center;
+    row-gap: 1rem;
   }
 }
 .instagram .instagram_description img, .instagram .instagram_description svg, .instagram .instagram_description img.emoji {
   width: 2rem !important;
   height: 2rem !important;
-}
-@media (max-width: 600px) {
-  .instagram .instagram_description img, .instagram .instagram_description svg, .instagram .instagram_description img.emoji {
-    display: none !important;
-  }
 }
 .instagram .instagram_description h3 {
   color: var(--quoteDark);
