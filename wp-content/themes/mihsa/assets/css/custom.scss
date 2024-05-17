@@ -1655,7 +1655,7 @@ section:has(.testimonialGrid) {
 	inset-inline-start: var(--inset-inline-start, 10%);
 	inset-inline-end: var(--inset-inline-end, 50%);
 	inset-block-start: var(--inset-block-start, 0%);
-	inset-block-end: var(--inset-block-end, 5%);
+	inset-block-end: var(--inset-block-end, 0%);
 	z-index: -1;
 	background-image: url("../images/polka.png");
 	background-repeat: space;
