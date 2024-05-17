@@ -1832,8 +1832,8 @@ li:has(> .dropdown-menu) {
 
 @media screen and (min-width: 769px) {
   section:has(.instagram) {
-    margin-block-end: 15rem;
-    margin-block-start: 10rem;
+    margin-block-end: 12.5rem;
+    margin-block-start: 8.5rem;
   }
 }
 
