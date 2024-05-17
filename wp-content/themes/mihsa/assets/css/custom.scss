@@ -759,6 +759,9 @@ footer {
 		background-position: center;
 		background-size: cover;
 		min-height: 48vh;
+		@media screen and (min-width:768px) {
+			min-height: 80vh;
+		}
 	}
 }
 section:has(.testimonialGrid) {
@@ -837,6 +840,7 @@ section:has(.testimonialGrid) {
 	.total-pages {
 		color: var(--paginationGrey); /* Color for total pages */
 	}
+	
 }
 .custom-arrow {
 	display: flex;
@@ -1693,7 +1697,7 @@ li:has(> .dropdown-menu) {
 		}
 	}
 }
-.first-dropdown-item{
+[data-lg] .first-dropdown-item{
 	position: relative;
 	.dropdown-menu{
 		position: absolute;
@@ -1713,6 +1717,31 @@ li:has(> .dropdown-menu) {
 			opacity: 1;
 			visibility: visible;
 			display: grid;
+	}
+	}
+}
+[data-sm] .first-dropdown-item{
+	position: relative;
+	pointer-events: none;
+	overflow: hidden;
+	.dropdown-menu{
+		z-index: 1;
+		position: relative;
+		box-shadow: none;
+		top: 0;
+		z-index: 1;
+		justify-content: start;
+		margin-inline: 0;
+		opacity: 0px;
+		display: none;
+		transition: opacity 300ms ease-in-out;
+	}
+	&[data-open]{
+		overflow: visible;
+		.dropdown-menu{
+			opacity: 1;
+			display: grid;
+			
 	}
 	}
 }
@@ -1771,4 +1800,9 @@ li:has(> .dropdown-menu) {
 	@media (max-width: 769px){
 		display: initial;
 	}
+}
+
+.slicker-instagram-placeholder {
+    max-height: 200px;
+    background-size: cover;
 }
