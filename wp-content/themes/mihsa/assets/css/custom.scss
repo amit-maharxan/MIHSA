@@ -1647,6 +1647,19 @@ section:has(.testimonialGrid) {
 	inset-inline: var(--inset-inline, 15%);
 	inset-block: var(--inset-block, 10%);
 }
+.patternPrecise{
+	position: absolute;
+	@media (max-width: 769px) {
+		display: none;
+	}
+	inset-inline-start: var(--inset-inline-start, 10%);
+	inset-inline-end: var(--inset-inline-end, 50%);
+	inset-block-start: var(--inset-block-start, 0%);
+	inset-block-end: var(--inset-block-end, 5%);
+	z-index: -1;
+	background-image: url("../images/polka.png");
+	background-repeat: space;
+}
 
 .mc4wp-success {
 	color: var(--highlightGreen);
@@ -1750,6 +1763,7 @@ li:has(> .dropdown-menu) {
 	// grid-template-columns: 1fr 20rem;
 	@media (min-width:768px) {
 		grid-template-columns: 1fr 20rem;
+		padding-block: 8rem;
 	}
 	gap: 2rem;
 	.instagram_feeds{
@@ -1805,4 +1819,10 @@ li:has(> .dropdown-menu) {
 .slicker-instagram-placeholder {
     max-height: 200px;
     background-size: cover;
+}
+section:has(.instagram){
+	@media screen and (min-width: 769px) {
+		margin-block-end: 15rem;
+		margin-block-start: 10rem;
+	}
 }

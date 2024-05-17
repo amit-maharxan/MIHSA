@@ -1646,6 +1646,22 @@ section:has(.testimonialGrid) {
   }
 }
 
+.patternPrecise {
+  position: absolute;
+  inset-inline-start: var(--inset-inline-start, 10%);
+  inset-inline-end: var(--inset-inline-end, 50%);
+  inset-block-start: var(--inset-block-start, 0%);
+  inset-block-end: var(--inset-block-end, 5%);
+  z-index: -1;
+  background-image: url("../images/polka.png");
+  background-repeat: space;
+}
+@media (max-width: 769px) {
+  .patternPrecise {
+    display: none;
+  }
+}
+
 .mc4wp-success {
   color: var(--highlightGreen);
 }
@@ -1752,6 +1768,7 @@ li:has(> .dropdown-menu) {
 @media (min-width: 768px) {
   .instagram {
     grid-template-columns: 1fr 20rem;
+    padding-block: 8rem;
   }
 }
 .instagram .instagram_feeds {
@@ -1811,6 +1828,13 @@ li:has(> .dropdown-menu) {
 .slicker-instagram-placeholder {
   max-height: 200px;
   background-size: cover;
+}
+
+@media screen and (min-width: 769px) {
+  section:has(.instagram) {
+    margin-block-end: 15rem;
+    margin-block-start: 10rem;
+  }
 }
 
 /*# sourceMappingURL=custom.css.map */
