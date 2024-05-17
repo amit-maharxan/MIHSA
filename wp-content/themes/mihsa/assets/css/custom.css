@@ -356,7 +356,7 @@ nav[data-sm] {
   align-items: center;
 }
 .header-top-bar-content ul li span {
-  width: max-content;
+  width: fit-content;
 }
 @media screen and (max-width: 769px) {
   .header-top-bar-content {
@@ -397,7 +397,7 @@ nav[data-sm] {
   align-items: center;
 }
 .header-bottom-content ul li span {
-  width: max-content;
+  width: fit-content;
 }
 .header-bottom-content ul li {
   align-content: center;
@@ -411,7 +411,7 @@ nav[data-sm] {
 
 .btn-sm, section.contact form .btn, form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding-inline: 1rem;
-  width: max-content;
+  width: fit-content;
   white-space: nowrap;
   padding-block: 0.75rem;
   margin-block: 1rem;
@@ -423,7 +423,7 @@ nav[data-sm] {
 
 .btn-md {
   padding-inline: 3rem;
-  width: max-content;
+  width: fit-content;
   white-space: nowrap;
   padding-block: 0.75rem;
   margin-block: 1rem;
@@ -549,7 +549,7 @@ footer ul li {
   align-items: center;
 }
 footer ul li span {
-  width: max-content;
+  width: fit-content;
 }
 footer ul {
   padding-block: 0px;
@@ -878,7 +878,7 @@ footer ul li {
 .newsletterGrid .grid-item {
   display: grid;
   gap: 1rem;
-  height: max-content;
+  height: fit-content;
 }
 .newsletterGrid .newsletterTitle {
   font-size: var(--newsLeterHeading);
@@ -1022,7 +1022,7 @@ form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {
   align-items: center;
 }
 .breadcrumb ul li span {
-  width: max-content;
+  width: fit-content;
 }
 .breadcrumb ul {
   gap: 0.1rem;
@@ -1213,6 +1213,7 @@ form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {
   background-color: var(--service-bg-color);
   padding: 2rem;
   color: var(--contentGrey);
+  box-sizing: border-box;
 }
 .service-details-perks-contents .content ul {
   --gap: calc(24rem / 16);
@@ -1694,7 +1695,7 @@ input:has(+ .wpcf7-not-valid-tip) {
   transition: opacity 300ms ease-in-out;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  width: max-content;
+  width: fit-content;
   text-transform: capitalize;
 }
 
