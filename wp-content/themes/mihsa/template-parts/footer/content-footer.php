@@ -51,11 +51,28 @@ function is_post_type($type){
 </script>
 
 <script>
-$(document).ready(function() {
-    $('.first-dropdown-item').each(function() {
-        $(this).next('.dropdown-menu').appendTo($(this));
-    });
-});
+    $(document).ready(function() {
+        $('.first-dropdown-item').each(function() {
+            $(this).next('.dropdown-menu').appendTo($(this));
+        });
+
+        $('.first-dropdown-item').click(function(event) {
+          event.preventDefault();
+          if ($(this).find('.dropdown-menu').length === 0) {
+            var url = $(this).attr('href');
+            window.location.href = url;
+          } else {
+            $(this).attr('data-open', true);
+            $('.first-dropdown-item').not(this).removeAttr('data-open');
+          }
+        });
+
+        $('.second-dropdown-item').click(function(event) {
+          event.preventDefault();
+          var url = $(this).attr('href');
+          window.location.href = url;
+        });
+      });
 </script>
 
 <footer class="mainGrid">

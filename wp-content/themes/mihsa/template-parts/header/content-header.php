@@ -79,7 +79,7 @@
              'container'       => false,
              'menu_id'         => '',
              'menu_class'      => 'hover-link',
-             'depth'           => 2,
+             'depth'           => 3,
              'fallback_cb'     => 'bs4navwalker::fallback',
              'walker'          => new bs4navwalker()
           ]);
@@ -105,7 +105,7 @@
                'container'       => false,
                'menu_id'         => '',
                'menu_class'      => '',
-               'depth'           => 2,
+               'depth'           => 3,
                'fallback_cb'     => 'bs4navwalker::fallback',
                'walker'          => new bs4navwalker()
             ]);
@@ -117,7 +117,7 @@
                'container'       => false,
                'menu_id'         => '',
                'menu_class'      => '',
-               'depth'           => 2,
+               'depth'           => 3,
                'fallback_cb'     => 'bs4navwalker::fallback',
                'walker'          => new bs4navwalker()
             ]);

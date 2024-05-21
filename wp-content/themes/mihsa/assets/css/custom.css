@@ -1742,8 +1742,8 @@ li:has(> .dropdown-menu) {
 
 [data-sm] .first-dropdown-item {
   position: relative;
-  pointer-events: none;
-  overflow: hidden;
+  /* pointer-events: none; */
+  /* overflow: hidden; */
 }
 [data-sm] .first-dropdown-item .dropdown-menu {
   z-index: 1;
