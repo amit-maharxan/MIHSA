@@ -126,7 +126,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   <?php $price_per_session = get_field('price_per_session', $child_post->ID);
                   if($price_per_session){ ?>
                   <div class="price_per_session">
-                        <b>Price Per Session</b>
+                        <b>Price</b>
                         <?php if( have_rows('price_per_session', $child_post->ID) ):
                         while( have_rows('price_per_session', $child_post->ID) ) : the_row(); ?>
                         <?php the_sub_field('price_text', $child_post->ID);?><br>
@@ -185,7 +185,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $child_post->ID ), 
                   <?php $price_per_session = get_field('price_per_session');
                   if($price_per_session){ ?>
                   <div class="price_per_session">
-                        <b>Price Per Session</b>
+                        <b>PRICE:</b>
                         <?php if( have_rows('price_per_session') ):
                         while( have_rows('price_per_session') ) : the_row(); ?>
                         <?php the_sub_field('price_text');?><br>

@@ -15,7 +15,7 @@
   --policyGrey: #8e8e8e;
   --accordionBorderGrey: #dbdbdb;
   --paginationGrey: #b6b6b6;
-  --highlightGreen: #99a833;
+  --highlightGreen: #ad9181;
   --logo-col: #ab8f80;
   --logo-col-light: #bca59b;
   --bannerColor: var(--logo-col);
@@ -1095,6 +1095,7 @@ form[data-name='Newsletter'] .mc4wp-form-fields p input {
   margin: 0;
   border: 1px solid;
   border-radius: 0px;
+  border-inline-end: none;
 }
 form[data-name='Newsletter'] .mc4wp-form-fields p input[type='submit'] {
   height: 100%;
@@ -1927,7 +1928,8 @@ li:has(> .dropdown-menu) {
 }
 
 .slicker-instagram-placeholder {
-  max-height: 200px;
+  max-height: 250px;
+  max-width: 250px;
   background-size: cover;
 }
 
