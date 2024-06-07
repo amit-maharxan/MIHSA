@@ -21,8 +21,7 @@
     $images = get_field('instagram_gallery');
     if( $images ): ?>
     <div id="instagram_slider">
-      <a href="<?php the_field('instagram_url') ?>">
-
+      <a href="<?php the_field('instagram_url') ?>" target="_blank">
         <ul class="slides">
           <?php foreach( $images as $image ): ?>
             <li>
