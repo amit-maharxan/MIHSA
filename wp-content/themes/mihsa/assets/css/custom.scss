@@ -1862,3 +1862,28 @@ section:has(.instagram) {
     margin-block-start: 8.5rem;
   }
 }
+
+#instagram_slider {
+  display: grid;
+  place-content: center;
+  .slides {
+    --_gap: 1px;
+    --_columns: 3;
+    display: grid;
+    grid-template-columns: repeat(var(--_columns), 1fr);
+    gap: var(--_gap);
+    max-width: calc(3 * 250px + var(--_gap) * (var(--_columns) - 1));
+    li {
+      aspect-ratio: 1;
+      height: auto;
+      width: 100%;
+      overflow: hidden;
+      img {
+        aspect-ratio: 1;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

@@ -21,16 +21,21 @@
     <div class="instagram_feeds">
     <?php 
     $images = get_field('instagram_gallery');
+    // $images = [1,1,1,1,1,1];
     if( $images ): ?>
     <div id="instagram_slider">
+      <a href="<?php the_field('instagram_url') ?>">
+
         <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
+          <?php foreach( $images as $image ): ?>
+          <li>
                     <img src="<?php echo $image; ?>" alt="" />
+                    <!-- <img src="https://mihsaaesthetics.com/wp-content/uploads/2024/05/Chemical-Peel-1.jpg" alt="" /> -->
                 </li>
             <?php endforeach; ?>
         </ul>
-    </div>
+      </a>
+      </div>
     <?php endif; ?>
     </div>
     <div class="instagram_description">
