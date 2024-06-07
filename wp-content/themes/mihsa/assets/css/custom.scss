@@ -1868,11 +1868,11 @@ section:has(.instagram) {
   place-content: center;
   .slides {
     --_gap: 1px;
-    --_columns: 3;
+    --_columns: 4;
     display: grid;
     grid-template-columns: repeat(var(--_columns), 1fr);
     gap: var(--_gap);
-    max-width: calc(3 * 250px + var(--_gap) * (var(--_columns) - 1));
+    max-width: calc(4 * 250px + var(--_gap) * (var(--_columns) - 1));
     li {
       aspect-ratio: 1;
       height: auto;
