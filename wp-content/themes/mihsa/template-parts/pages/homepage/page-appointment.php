@@ -19,7 +19,19 @@
 <section class="mainGrid relative">
   <div class="content instagram ">
     <div class="instagram_feeds">
-      <?php echo do_shortcode('[feed_them_social cpt_id=428]');?>
+    <?php 
+    $images = get_field('instagram_gallery');
+    if( $images ): ?>
+    <div id="instagram_slider">
+        <ul class="slides">
+            <?php foreach( $images as $image ): ?>
+                <li>
+                    <img src="<?php echo $image; ?>" alt="" />
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
     </div>
     <div class="instagram_description">
       <span style="color: #e02b40"> 
