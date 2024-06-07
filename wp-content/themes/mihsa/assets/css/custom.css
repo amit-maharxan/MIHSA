@@ -1875,11 +1875,11 @@ li:has(> .dropdown-menu) {
 }
 #instagram_slider .slides {
   --_gap: 1px;
-  --_columns: 3;
+  --_columns: 4;
   display: grid;
   grid-template-columns: repeat(var(--_columns), 1fr);
   gap: var(--_gap);
-  max-width: calc(750px + var(--_gap) * (var(--_columns) - 1));
+  max-width: calc(1000px + var(--_gap) * (var(--_columns) - 1));
 }
 #instagram_slider .slides li {
   aspect-ratio: 1;
