@@ -7,6 +7,7 @@
   --dark: #000;
   --footerDark: #1b1c20;
   --quoteDark: #202023;
+  --quoteLight: #f3eee8;
   --servicesGrey: #2a2a2a;
   --lightGrey: #f9f9f9;
   --darkGrey: #666666;
@@ -471,8 +472,24 @@ nav[data-sm] {
 header .btn-light {
   --light: #ab8f81;
   --dark: #63554a;
+  @extend .btn-pill;
   border-color: var(--light);
   color: #fff !important;
+}
+
+.btn-logo {
+  --light: #ab8f81;
+  --dark: #63554a;
+  color: var(--dark);
+  background: var(--light);
+  border: 1px solid var(--dark);
+  font-family: var(--font-primary);
+  border-color: var(--light);
+  color: #fff !important;
+  &:hover {
+    color: var(--light);
+    background: var(--dark);
+  }
 }
 
 .btn-glass {
@@ -797,7 +814,7 @@ section:has(.testimonialGrid) {
   .quote {
     position: absolute;
     top: -10rem;
-    color: var(--quoteDark);
+    color: var(--quoteLight);
     font-family: Helvetica;
     @media (max-width: 768px) {
       top: -8rem;
@@ -1007,6 +1024,7 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
       @extend .btn-sm;
       margin: 0;
       border: 1px solid;
+      border-inline-end: none;
       border-radius: 0px;
       // height: 100%;
       &:not([type='submit']) {
@@ -1014,7 +1032,7 @@ form[data-name='Newsletter'] .mc4wp-form-fields {
       }
       &[type='submit'] {
         height: 100%;
-        @extend .btn-highlight;
+        @extend .btn-logo;
       }
     }
   }

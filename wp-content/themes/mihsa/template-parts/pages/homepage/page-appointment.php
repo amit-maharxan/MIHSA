@@ -160,7 +160,7 @@
             <span><?php the_field('footer_address', 'option');?></span>
           </li>
           <li>
-            <a href="<?php the_field('map_url', 'option');?>" class="btn-md btn-highlight btn-pill w300" target="_blank">
+            <a href="<?php the_field('map_url', 'option');?>" class="btn-md btn-logo btn-pill w300" target="_blank">
               Get directions on the map
             </a>
           </li>

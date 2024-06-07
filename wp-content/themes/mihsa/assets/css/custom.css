@@ -6,6 +6,7 @@
   --dark: #000;
   --footerDark: #1b1c20;
   --quoteDark: #202023;
+  --quoteLight: #f3eee8;
   --servicesGrey: #2a2a2a;
   --lightGrey: #f9f9f9;
   --darkGrey: #666666;
@@ -435,7 +436,7 @@ nav[data-sm] {
   transition-timing-function: ease-in-out;
 }
 
-.btn-pill, section.contact form .btn {
+.btn-pill, section.contact form .btn, header .btn-light {
   border-radius: 100vh;
 }
 
@@ -455,6 +456,21 @@ header .btn-light {
   --dark: #63554a;
   border-color: var(--light);
   color: #fff !important;
+}
+
+.btn-logo, form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {
+  --light: #ab8f81;
+  --dark: #63554a;
+  color: var(--dark);
+  background: var(--light);
+  border: 1px solid var(--dark);
+  font-family: var(--font-primary);
+  border-color: var(--light);
+  color: #fff !important;
+}
+.btn-logo:hover, form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit]:hover {
+  color: var(--light);
+  background: var(--dark);
 }
 
 .btn-glass {
@@ -480,7 +496,7 @@ header .btn-light {
   background: var(--light);
 }
 
-.btn-highlight, form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {
+.btn-highlight {
   color: var(--light);
   background: var(--highlightGreen);
   font-family: var(--font-secondary);
@@ -488,7 +504,7 @@ header .btn-light {
   font-size: var(--regularFontSize);
   font-weight: 300;
 }
-.btn-highlight:hover, form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit]:hover {
+.btn-highlight:hover {
   color: var(--highlightGreen);
   background: var(--light);
 }
@@ -807,7 +823,7 @@ footer ul li {
 .testimonialGrid .quote {
   position: absolute;
   top: -10rem;
-  color: var(--quoteDark);
+  color: var(--quoteLight);
   font-family: Helvetica;
 }
 @media (max-width: 768px) {
@@ -1016,6 +1032,7 @@ form[data-name=Newsletter] .mc4wp-form-fields p input {
   padding: 0.5rem;
   margin: 0;
   border: 1px solid;
+  border-inline-end: none;
   border-radius: 0px;
 }
 form[data-name=Newsletter] .mc4wp-form-fields p input[type=submit] {

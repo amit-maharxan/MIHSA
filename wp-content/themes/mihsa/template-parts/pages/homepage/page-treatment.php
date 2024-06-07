@@ -42,7 +42,7 @@
       <?php endforeach; endif; ?>
     </ul>
     <a href="<?php the_field('story_button_url');?>"
-      class="btn-md btn-dark btn-pill floatRight"
+      class="btn-md btn-logo btn-pill floatRight"
       onclick="toggleViewClicked('treatmentGrid')">
       <?php the_field('story_button_text');?>
     </a>
