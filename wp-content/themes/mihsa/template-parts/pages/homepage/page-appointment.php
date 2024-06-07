@@ -18,10 +18,10 @@
   <div class="content instagram ">
     <div class="instagram_feeds">
     <?php 
-    $images = get_field('instagram_gallery');
+    $images = get_field('instagram_gallery', 'option');
     if( $images ): ?>
     <div id="instagram_slider">
-      <a href="<?php the_field('instagram_url') ?>" target="_blank">
+      <a href="<?php the_field('instagram_url', 'option') ?>" target="_blank">
         <ul class="slides">
           <?php foreach( $images as $image ): ?>
             <li>
