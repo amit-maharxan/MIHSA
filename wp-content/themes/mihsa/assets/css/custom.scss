@@ -795,8 +795,10 @@ footer {
   }
 }
 section:has(.testimonialGrid) {
+  background-color: #f3eee8;
+  padding-block-start: calc(150rem / 32);
   @media (min-width: 768px) {
-    margin-block-start: 10rem;
+    padding-block-start: 10rem;
   }
 }
 .testimonialGrid {
@@ -814,7 +816,7 @@ section:has(.testimonialGrid) {
   .quote {
     position: absolute;
     top: -10rem;
-    color: var(--quoteLight);
+    color: #ddd4cf;
     font-family: Helvetica;
     @media (max-width: 768px) {
       top: -8rem;
@@ -1666,7 +1668,8 @@ section.blog-section {
   }
 }
 section:has(.testimonialGrid) {
-  margin-block-end: calc(150rem / 16);
+  margin-block-end: calc(150rem / 32);
+  padding-block-end: calc(150rem / 32);
 }
 
 .relative {
