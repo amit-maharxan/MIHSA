@@ -1804,7 +1804,7 @@ li:has(> .dropdown-menu) {
 @media (min-width: 768px) {
   .instagram {
     grid-template-columns: 1fr 20rem;
-    padding-block: 8rem;
+    padding-block: 100px;
   }
 }
 .instagram .instagram_feeds {
@@ -1865,13 +1865,6 @@ li:has(> .dropdown-menu) {
   max-height: 250px;
   max-width: 250px;
   background-size: cover;
-}
-
-@media screen and (min-width: 769px) {
-  section:has(.instagram) {
-    margin-block-end: 12.5rem;
-    margin-block-start: 8.5rem;
-  }
 }
 
 #instagram_slider {

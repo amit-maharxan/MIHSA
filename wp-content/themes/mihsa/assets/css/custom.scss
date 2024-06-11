@@ -1796,7 +1796,7 @@ li:has(> .dropdown-menu) {
   // grid-template-columns: 1fr 20rem;
   @media (min-width: 768px) {
     grid-template-columns: 1fr 20rem;
-    padding-block: 8rem;
+    padding-block: 100px;
   }
   gap: 2rem;
   .instagram_feeds {
@@ -1861,8 +1861,8 @@ li:has(> .dropdown-menu) {
 }
 section:has(.instagram) {
   @media screen and (min-width: 769px) {
-    margin-block-end: 12.5rem;
-    margin-block-start: 8.5rem;
+    // margin-block-end: 12.5rem;
+    // margin-block-start: 8.5rem;
   }
 }
 
